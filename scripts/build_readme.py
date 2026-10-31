@@ -93,5 +93,7 @@ for nome, mes, dia, ano in ANIVERSARIOS:
 aniversarios = "\n".join(t for _, t in sorted(itens))
 
 t = open("README.template.md", encoding="utf-8").read()
-saida = t.replace("{{CLIMA}}", bloco).replace("{{CARNAVAL}}", carnaval)
+saida = (t.replace("{{CLIMA}}", bloco)
+          .replace("{{CARNAVAL}}", carnaval)
+          .replace("{{ANIVERSARIOS}}", aniversarios))
 open("README.md", "w", encoding="utf-8").write(saida)
