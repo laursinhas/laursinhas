@@ -1,20 +1,23 @@
-# LaUrsinhas
+<div align="center">
 
-## Contagem pro Carnaval
-🎭 Faltam 98 dias pro bloco sair! (06/02 a 09/02/2027)
+# 🐻 La Ursinhas
+### O bloco mais fofo de Pernambuco!
 
-## Termômetro das Alas
-| | Ala | Temp | Humor do bloco |
-|---|---|---|---|
-| 😎 | Bezerros (Ala dos Papangus) | 22°C | Tempo bom, bloco liberado pra sair. |
-| 😎 | Recife (Ala do Frevo) | 27°C | Tempo bom, bloco liberado pra sair. |
-| 😎 | Olinda (Ala dos Bonecos) | 27°C | Tempo bom, bloco liberado pra sair. |
+<a href="https://instagram.com/laursinhas"><img src="https://img.shields.io/badge/Instagram-@laursinhas-D62839?style=for-the-badge&logo=instagram&logoColor=white" alt="Instagram"></a>
+<img src="https://img.shields.io/badge/Alas-Recife_%7C_Olinda_%7C_Bezerros-2F6BD9?style=for-the-badge" alt="Alas">
+<img src="https://img.shields.io/badge/Atualiza-a_cada_3h-F6C21B?style=for-the-badge&labelColor=14284B" alt="Atualização">
 
-🔥 Ala mais quente agora: Ala do Frevo
+<br><br>
 
-_Atualizado em 31/10/2026 20:46 (Recife)_
+<img src="assets/painel.svg" alt="Painel do bloco: contagem do Carnaval e clima das três alas" width="100%">
 
-## Aniversário das Alas
+</div>
+
+<details>
+<summary>🎂 Aniversário das Alas</summary>
+
 - 🎂 Olinda: faltam 132 dias, em 12/03 (492 anos)
 - 🎂 Recife: faltam 132 dias, em 12/03 (490 anos)
-- 🎂 Bezerros: faltam 199 dias, em 18/05 (157 anos)
+- 🎂 Bezerros: faltam 199 dias, em 18/05
+
+</details>
