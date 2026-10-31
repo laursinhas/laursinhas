@@ -12,4 +12,9 @@
 
 🔥 Ala mais quente agora: Ala do Frevo
 
-_Atualizado em 31/10/2026 20:29 (Recife)_
+_Atualizado em 31/10/2026 20:46 (Recife)_
+
+## Aniversário das Alas
+- 🎂 Olinda: faltam 132 dias, em 12/03 (492 anos)
+- 🎂 Recife: faltam 132 dias, em 12/03 (490 anos)
+- 🎂 Bezerros: faltam 199 dias, em 18/05 (157 anos)
