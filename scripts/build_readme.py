@@ -1,5 +1,6 @@
+# ---------- CLIMA (automático) ----------
 import json, urllib.request
-from datetime import datetime, timezone, timedelta
+from datetime import datetime, timezone, timedelta, date
 
 CIDADES = [
     ("Bezerros", -8.23, -35.80, "Ala dos Papangus"),
@@ -32,8 +33,43 @@ for c, d in zip(CIDADES, dados):
     linhas.append(f"| {e} | {c[0]} ({c[3]}) | {cur['temperature_2m']:.0f}°C | {frase} |")
 
 quente = max(zip(CIDADES, dados), key=lambda x: x[1]["current"]["temperature_2m"])
-agora = datetime.now(timezone(timedelta(hours=-3))).strftime("%d/%m/%Y %H:%M")
+fuso = timezone(timedelta(hours=-3))
+agora = datetime.now(fuso).strftime("%d/%m/%Y %H:%M")
 bloco = "\n".join(linhas) + f"\n\n🔥 Ala mais quente agora: {quente[0][3]}\n\n_Atualizado em {agora} (Recife)_"
 
+# ---------- CARNAVAL (automático) ----------
+def pascoa(ano):
+    a = ano % 19
+    b, c = divmod(ano, 100)
+    d, e = divmod(b, 4)
+    f = (b + 8) // 25
+    g = (b - f + 1) // 3
+    h = (19 * a + b - d - g + 15) % 30
+    i, k = divmod(c, 4)
+    l = (32 + 2 * e + 2 * i - h - k) % 7
+    m = (a + 11 * h + 22 * l) // 451
+    mes, dia = divmod(h + l - 7 * m + 114, 31)
+    return date(ano, mes, dia + 1)
+
+def sabado_carnaval(ano):
+    return pascoa(ano) - timedelta(days=50)
+
+hoje = datetime.now(fuso).date()
+CARNAVAL = sabado_carnaval(hoje.year)
+if hoje > CARNAVAL + timedelta(days=3):
+    CARNAVAL = sabado_carnaval(hoje.year + 1)
+dias = (CARNAVAL - hoje).days
+periodo = f"{CARNAVAL:%d/%m} a {CARNAVAL + timedelta(days=3):%d/%m/%Y}"
+
+if dias > 1:
+    carnaval = f"🎭 Faltam {dias} dias pro bloco sair! ({periodo})"
+elif dias == 1:
+    carnaval = f"🎭 É amanhã! Separa a sombrinha! ({periodo})"
+elif dias == 0:
+    carnaval = f"🎉 É HOJE! O bloco está na rua! ({periodo})"
+else:
+    carnaval = f"🥁 O bloco está na rua, o Carnaval não para! ({periodo})"
+
 t = open("README.template.md", encoding="utf-8").read()
-open("README.md", "w", encoding="utf-8").write(t.replace("{{CLIMA}}", bloco))
+saida = t.replace("{{CLIMA}}", bloco).replace("{{CARNAVAL}}", carnaval)
+open("README.md", "w", encoding="utf-8").write(saida)
