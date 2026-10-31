@@ -1,6 +1,7 @@
-# ---------- CLIMA (automático) ----------
-import json, urllib.request
+import json, math, textwrap, urllib.request
+from pathlib import Path
 from datetime import datetime, timezone, timedelta, date
+from xml.sax.saxutils import escape as esc
 
 CIDADES = [
     ("Bezerros", -8.23, -35.80, "Ala dos Papangus"),
@@ -26,16 +27,17 @@ def humor(t, chuva, code):
         return "🧣", "Fresquinho! Papangu de casaco hoje."
     return "😎", "Tempo bom, bloco liberado pra sair."
 
-linhas = ["| | Ala | Temp | Humor do bloco |", "|---|---|---|---|"]
+fuso = timezone(timedelta(hours=-3))
+agora = datetime.now(fuso)
+hoje = agora.date()
+hora = agora.strftime("%d/%m/%Y %H:%M")
+
+clima = []
 for c, d in zip(CIDADES, dados):
     cur = d["current"]
     e, frase = humor(cur["temperature_2m"], cur["precipitation"], cur["weather_code"])
-    linhas.append(f"| {e} | {c[0]} ({c[3]}) | {cur['temperature_2m']:.0f}°C | {frase} |")
-
-quente = max(zip(CIDADES, dados), key=lambda x: x[1]["current"]["temperature_2m"])
-fuso = timezone(timedelta(hours=-3))
-agora = datetime.now(fuso).strftime("%d/%m/%Y %H:%M")
-bloco = "\n".join(linhas) + f"\n\n🔥 Ala mais quente agora: {quente[0][3]}\n\n_Atualizado em {agora} (Recife)_"
+    clima.append({"nome": c[0], "ala": c[3], "temp": cur["temperature_2m"], "emoji": e, "frase": frase})
+quente = max(clima, key=lambda x: x["temp"])["nome"]
 
 # ---------- CARNAVAL (automático) ----------
 def pascoa(ano):
@@ -54,7 +56,6 @@ def pascoa(ano):
 def sabado_carnaval(ano):
     return pascoa(ano) - timedelta(days=50)
 
-hoje = datetime.now(fuso).date()
 CARNAVAL = sabado_carnaval(hoje.year)
 if hoje > CARNAVAL + timedelta(days=3):
     CARNAVAL = sabado_carnaval(hoje.year + 1)
@@ -62,22 +63,23 @@ dias = (CARNAVAL - hoje).days
 periodo = f"{CARNAVAL:%d/%m} a {CARNAVAL + timedelta(days=3):%d/%m/%Y}"
 
 if dias > 1:
-    carnaval = f"🎭 Faltam {dias} dias pro bloco sair! ({periodo})"
+    grande, linha = str(dias), "dias pro bloco sair"
 elif dias == 1:
-    carnaval = f"🎭 É amanhã! Separa a sombrinha! ({periodo})"
+    grande, linha = "1", "dia: é amanhã!"
 elif dias == 0:
-    carnaval = f"🎉 É HOJE! O bloco está na rua! ({periodo})"
+    grande, linha = "HOJE", "o bloco está na rua!"
 else:
-    carnaval = f"🥁 O bloco está na rua, o Carnaval não para! ({periodo})"
+    grande, linha = "🥁", "o Carnaval não para!"
 
 # ---------- ANIVERSÁRIOS ----------
 ANIVERSARIOS = [
     ("Olinda", 3, 12, 1535),
     ("Recife", 3, 12, 1537),
-    ("Bezerros", 5, 18, 1870),
+    ("Bezerros", 5, 18, None),  # ano da emancipação: preencher quando confirmar
 ]
 
 itens = []
+card_aniv = {}
 for nome, mes, dia, ano in ANIVERSARIOS:
     prox = date(hoje.year, mes, dia)
     if prox < hoje:
@@ -86,14 +88,74 @@ for nome, mes, dia, ano in ANIVERSARIOS:
     idade = f" ({prox.year - ano} anos)" if ano else ""
     if faltam == 0:
         texto = f"- 🎂 {nome}: parabéns, é hoje!{idade}"
+        card_aniv[nome] = "🎂 parabéns, é hoje!"
     else:
         texto = f"- 🎂 {nome}: faltam {faltam} dias, em {prox:%d/%m}{idade}"
+        card_aniv[nome] = f"🎂 {prox:%d/%m} · faltam {faltam} dias"
     itens.append((faltam, texto))
+aniversarios = "\n".join(txt for _, txt in sorted(itens))
 
-aniversarios = "\n".join(t for _, t in sorted(itens))
+# ---------- PAINEL SVG (cores da bandeira de PE) ----------
+AZUL, AZUL_ESC = "#2F6BD9", "#14284B"
+AMARELO, VERMELHO, VERDE = "#F6C21B", "#D62839", "#2E9E48"
+W, H = 900, 520
+cx, base = 450, 215
 
+def estrela(x, y, r, ri):
+    pts = []
+    for k in range(10):
+        ang = math.pi / 2 + k * math.pi / 5
+        rr = r if k % 2 == 0 else ri
+        pts.append(f"{x + rr * math.cos(ang):.1f},{y - rr * math.sin(ang):.1f}")
+    return " ".join(pts)
+
+svg = [
+    f'<svg xmlns="http://www.w3.org/2000/svg" width="{W}" height="{H}" viewBox="0 0 {W} {H}" font-family="Segoe UI, Helvetica, Arial, sans-serif">',
+    f'<defs><clipPath id="c"><rect width="{W}" height="{H}" rx="22"/></clipPath></defs>',
+    '<g clip-path="url(#c)">',
+    f'<rect width="{W}" height="{H}" fill="#FFFFFF"/>',
+    f'<rect width="{W}" height="{base}" fill="{AZUL}"/>',
+]
+
+# arco-íris + sol + estrela, como na bandeira
+for r, cor in ((118, VERMELHO), (100, AMARELO), (82, VERDE)):
+    svg.append(f'<path d="M {cx-r} {base} A {r} {r} 0 0 1 {cx+r} {base}" fill="none" stroke="{cor}" stroke-width="16"/>')
+svg.append(f'<path d="M {cx-62} {base} A 62 62 0 0 1 {cx+62} {base} Z" fill="{AMARELO}"/>')
+svg.append(f'<polygon points="{estrela(cx, 36, 17, 7)}" fill="{AMARELO}"/>')
+
+# contagem do Carnaval
+tam = 84 if len(grande) <= 3 else 56
+svg.append(f'<text x="48" y="118" font-size="{tam}" font-weight="800" fill="#FFFFFF">{esc(grande)}</text>')
+for j, ln in enumerate(textwrap.wrap(linha, 22)[:2]):
+    svg.append(f'<text x="50" y="{152 + j * 22}" font-size="19" font-weight="600" fill="#FFFFFF">{esc(ln)}</text>')
+svg.append(f'<text x="852" y="92" font-size="13" font-weight="700" fill="{AMARELO}" text-anchor="end" letter-spacing="2">CARNAVAL</text>')
+svg.append(f'<text x="852" y="124" font-size="24" font-weight="700" fill="#FFFFFF" text-anchor="end">{esc(periodo)}</text>')
+
+# cards das alas
+for i, c in enumerate(clima):
+    x, y = 40 + i * 285, 240
+    eh_quente = c["nome"] == quente
+    borda = AMARELO if eh_quente else "#BBD3F5"
+    svg.append(f'<rect x="{x}" y="{y}" width="250" height="225" rx="16" fill="#F3F8FF" stroke="{borda}" stroke-width="{4 if eh_quente else 1.5}"/>')
+    if eh_quente:
+        svg.append(f'<text x="{x+24}" y="{y+30}" font-size="12" font-weight="700" fill="{VERMELHO}">🔥 ALA MAIS QUENTE</text>')
+    svg.append(f'<text x="{x+24}" y="{y+78}" font-size="36">{c["emoji"]}</text>')
+    svg.append(f'<text x="{x+226}" y="{y+78}" font-size="38" font-weight="800" fill="{AZUL}" text-anchor="end">{c["temp"]:.0f}°C</text>')
+    svg.append(f'<text x="{x+24}" y="{y+118}" font-size="22" font-weight="700" fill="{AZUL_ESC}">{esc(c["nome"])}</text>')
+    svg.append(f'<text x="{x+24}" y="{y+140}" font-size="14" fill="#5B6B88">{esc(c["ala"])}</text>')
+    for j, ln in enumerate(textwrap.wrap(c["frase"], 27)[:3]):
+        svg.append(f'<text x="{x+24}" y="{y+168 + j * 18}" font-size="14" fill="#2B3A55">{esc(ln)}</text>')
+    svg.append(f'<text x="{x+24}" y="{y+212}" font-size="14" font-weight="700" fill="{VERMELHO}">{esc(card_aniv[c["nome"]])}</text>')
+
+# rodapé com a cruz vermelha da bandeira
+svg.append(f'<rect x="47" y="486" width="6" height="22" fill="{VERMELHO}"/>')
+svg.append(f'<rect x="40" y="494" width="20" height="6" fill="{VERMELHO}"/>')
+svg.append(f'<text x="72" y="502" font-size="12" fill="#5B6B88">Atualizado em {hora} (Recife) · a cada 3 horas</text>')
+svg.append("</g></svg>")
+
+Path("assets").mkdir(exist_ok=True)
+Path("assets/painel.svg").write_text("\n".join(svg), encoding="utf-8")
+
+# ---------- README ----------
 t = open("README.template.md", encoding="utf-8").read()
-saida = (t.replace("{{CLIMA}}", bloco)
-          .replace("{{CARNAVAL}}", carnaval)
-          .replace("{{ANIVERSARIOS}}", aniversarios))
-open("README.md", "w", encoding="utf-8").write(saida)
+open("README.md", "w", encoding="utf-8").write(t.replace("{{ANIVERSARIOS}}", aniversarios))
