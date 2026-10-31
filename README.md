@@ -1,5 +1,8 @@
 # LaUrsinhas
 
+## Contagem pro Carnaval
+🎭 Faltam 98 dias pro bloco sair! (06/02 a 09/02/2027)
+
 ## Termômetro das Alas
 | | Ala | Temp | Humor do bloco |
 |---|---|---|---|
@@ -9,4 +12,4 @@
 
 🔥 Ala mais quente agora: Ala do Frevo
 
-_Atualizado em 31/10/2026 20:15 (Recife)_
+_Atualizado em 31/10/2026 20:29 (Recife)_
