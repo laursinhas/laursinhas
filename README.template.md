@@ -5,3 +5,6 @@
 
 ## Termômetro das Alas
 {{CLIMA}}
+
+## Aniversário das Alas
+{{ANIVERSARIOS}}
