@@ -70,6 +70,28 @@ elif dias == 0:
 else:
     carnaval = f"🥁 O bloco está na rua, o Carnaval não para! ({periodo})"
 
+# ---------- ANIVERSÁRIOS ----------
+ANIVERSARIOS = [
+    ("Olinda", 3, 12, 1535),
+    ("Recife", 3, 12, 1537),
+    ("Bezerros", 5, 18, 1870),
+]
+
+itens = []
+for nome, mes, dia, ano in ANIVERSARIOS:
+    prox = date(hoje.year, mes, dia)
+    if prox < hoje:
+        prox = date(hoje.year + 1, mes, dia)
+    faltam = (prox - hoje).days
+    idade = f" ({prox.year - ano} anos)" if ano else ""
+    if faltam == 0:
+        texto = f"- 🎂 {nome}: parabéns, é hoje!{idade}"
+    else:
+        texto = f"- 🎂 {nome}: faltam {faltam} dias, em {prox:%d/%m}{idade}"
+    itens.append((faltam, texto))
+
+aniversarios = "\n".join(t for _, t in sorted(itens))
+
 t = open("README.template.md", encoding="utf-8").read()
 saida = t.replace("{{CLIMA}}", bloco).replace("{{CARNAVAL}}", carnaval)
 open("README.md", "w", encoding="utf-8").write(saida)
