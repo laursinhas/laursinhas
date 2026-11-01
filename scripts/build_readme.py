@@ -150,7 +150,7 @@ for i, c in enumerate(clima):
 # rodapé com a cruz vermelha da bandeira
 svg.append(f'<rect x="47" y="486" width="6" height="22" fill="{VERMELHO}"/>')
 svg.append(f'<rect x="40" y="494" width="20" height="6" fill="{VERMELHO}"/>')
-svg.append(f'<text x="72" y="502" font-size="12" fill="#5B6B88">Atualizado em {hora} (Recife) · a cada 3 horas</text>')
+svg.append(f'<text x="72" y="502" font-size="12" fill="#5B6B88">Atualizado em {hora} · a cada 30 minutos</text>')
 svg.append("</g></svg>")
 
 Path("assets").mkdir(exist_ok=True)
