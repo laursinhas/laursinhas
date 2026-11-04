@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<title>La Ursinhas — cartão social</title>
+<!--
+  Fonte do assets/og.png, assets/icon-180.png e assets/icon-512.png.
+
+  Para regerar: abra este arquivo no navegador e salve a captura de tela
+  (1200x630 para o og.png). Os ícones saem das mesmas formas, quadradas.
+
+  Nada aqui é carregado da rede — o cartão é 100% HTML + SVG local.
+-->
+<style>
+  :root {
+    --azul: #2F6BD9;
+    --azul-esc: #14284B;
+    --amarelo: #F6C21B;
+    --vermelho: #D62839;
+    --verde: #2E9E48;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: #1b2436;
+    font-family: "Segoe UI", -apple-system, BlinkMacSystemFont, Roboto, Helvetica, Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 28px;
+    padding: 28px;
+  }
+  .cartao {
+    position: relative;
+    width: 1200px;
+    height: 630px;
+    overflow: hidden;
+    background: linear-gradient(160deg, var(--azul-esc) 0%, var(--azul) 55%, #1f4fa8 100%);
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    isolation: isolate;
+  }
+  .cartao::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(60% 45% at 50% -5%, rgba(246, 194, 27, .32), transparent 70%);
+    z-index: -1;
+  }
+  .emblema { width: 300px; margin-bottom: 6px; }
+  h1 {
+    margin: 0;
+    font-size: 86px;
+    font-weight: 800;
+    letter-spacing: -.03em;
+    line-height: 1.02;
+  }
+  .sub {
+    margin: 12px 0 0;
+    font-size: 34px;
+    font-weight: 700;
+    color: var(--amarelo);
+  }
+  .rodape-card {
+    position: absolute;
+    bottom: 44px;
+    left: 0; right: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    font-size: 24px;
+    font-weight: 600;
+    color: rgba(255, 255, 255, .92);
+  }
+  .cruz {
+    width: 22px; height: 22px;
+    background:
+      linear-gradient(var(--vermelho), var(--vermelho)) center/6px 100% no-repeat,
+      linear-gradient(var(--vermelho), var(--vermelho)) center/100% 6px no-repeat;
+  }
+  .urso { font-size: 92px; line-height: 1; }
+
+  .icone {
+    width: 512px;
+    height: 512px;
+    border-radius: 0;
+    overflow: hidden;
+    position: relative;
+    background: linear-gradient(160deg, var(--azul-esc) 0%, var(--azul) 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .icone .urso { font-size: 240px; }
+  .icone .emblema { width: 300px; position: absolute; bottom: 40px; margin: 0; }
+  .icone--mask {
+    width: 512px; height: 512px;
+    background: var(--azul);
+    border-radius: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+</style>
+</head>
+<body>
+
+<div class="cartao">
+  <div class="urso" aria-hidden="true">🐻</div>
+  <h1>La Ursinhas</h1>
+  <p class="sub">O bloco mais fofo de Pernambuco</p>
+  <div class="rodape-card">
+    <span class="cruz" aria-hidden="true"></span>
+    <span>Contagem pro Carnaval · Clima das alas · Roteiros por PE</span>
+  </div>
+</div>
+
+<div class="icone">
+  <div class="urso" aria-hidden="true">🐻</div>
+  <svg class="emblema" viewBox="0 -18 240 152" aria-hidden="true">
+    <path d="M20 130A100 100 0 0 1 220 130" fill="none" stroke="#D62839" stroke-width="14"/>
+    <path d="M36 130A84 84 0 0 1 204 130" fill="none" stroke="#F6C21B" stroke-width="14"/>
+    <path d="M52 130A68 68 0 0 1 188 130" fill="none" stroke="#2E9E48" stroke-width="14"/>
+    <path d="M68 130A52 52 0 0 1 172 130Z" fill="#F6C21B"/>
+    <polygon points="120,-15 117.4,-7.6 109.5,-7.4 115.7,-2.6 113.5,4.9 120,0.5 126.5,4.9 124.3,-2.6 130.5,-7.4 122.6,-7.6" fill="#F6C21B"/>
+  </svg>
+</div>
+
+<div class="icone--mask">
+  <div class="urso" aria-hidden="true">🐻</div>
+</div>
+
+</body>
+</html>
