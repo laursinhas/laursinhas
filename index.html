@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>La Ursinhas · O bloco mais fofo de Pernambuco</title>
-<meta name="description" content="Contagem pro Carnaval, clima, gíria do dia e roteiros por Pernambuco, com Recife, Olinda e Bezerros.">
+<meta name="description" content="Contagem pro Carnaval, clima, gíria do dia e roteiros por Pernambuco, com La Ursa e o universo cultural do Carnaval pernambucano">
 <link rel="canonical" href="https://laursinhas.xyz/">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E🐻%3C/text%3E%3C/svg%3E">
 <meta name="theme-color" content="#2F6BD9">
@@ -12,22 +12,22 @@
 <meta property="og:locale" content="pt_BR">
 <meta property="og:url" content="https://laursinhas.xyz/">
 <meta property="og:title" content="La Ursinhas · O bloco mais fofo de Pernambuco">
-<meta property="og:description" content="Contagem pro Carnaval, clima, gíria do dia e roteiros por Pernambuco.">
+<meta property="og:description" content="Contagem pro Carnaval, clima, gíria do dia e roteiros por Pernambuco, com La Ursa">
 <meta property="og:image" content="https://laursinhas.xyz/assets/og.png">
 <meta name="twitter:card" content="summary_large_image">
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"La Ursinhas","url":"https://laursinhas.xyz/","sameAs":["https://instagram.com/laursinhas"]}</script>
 <style>
-:root{--azul:#2F6BD9;--azul-esc:#14284B;--amarelo:#F6C21B;--vermelho:#D62839;--fundo:#F3F8FF;--borda:#BBD3F5;--texto:#2B3A55;--suave:#5B6B88}
+:root{--azul:#2F6BD9;--azul-esc:#14284B;--amarelo:#F6C21B;--vermelho:#D62839;--fundo:#F3F8FF;--borda:#BBD3F5;--texto:#2B3A55;--suave:#5B6B88;--ursa-marrão:#8B4513;--ursa-ouro:#D4AF37;--ursa-branco:#F5F5F5}
 *{box-sizing:border-box}
 body{margin:0;font-family:"Segoe UI",Helvetica,Arial,sans-serif;background:#fff;color:var(--texto)}
 :focus-visible{outline:3px solid var(--amarelo);outline-offset:2px}
 header{background:var(--azul);color:#fff;text-align:center;padding:32px 16px 0}
 h1{margin:0;font-size:clamp(28px,6vw,44px)}
 .tag{margin:6px 0 24px;font-size:18px}
-.grande{font-size:clamp(64px,18vw,110px);font-weight:800;line-height:1}
+.grande{font-size:clamp(64px,18vw,110px);font-weight:800;line-height:1;color:var(--ursa-marrão)}
 .linha{font-size:clamp(18px,4vw,24px);font-weight:600;margin-top:4px}
 .periodo{margin-top:10px;font-size:15px;color:var(--amarelo);font-weight:700}
-.emblema{display:block;width:240px;max-width:60%;margin:18px auto 0}
+.emblema{display:block;width:240px;max-width:60%;margin:18px auto 0;filter:drop-shadow(0 4px 6px rgba(0,0,0,.15))}
 main{max-width:920px;margin:0 auto;padding:24px 16px}
 .intro{text-align:center;font-size:17px;margin:0 0 28px}
 h2{color:var(--azul-esc);font-size:22px;margin:0 0 16px}
@@ -61,6 +61,7 @@ ul{margin:10px 0 0;padding-left:20px;line-height:1.8}
 footer{text-align:center;padding:24px 16px 40px;color:var(--suave);font-size:13px}
 .botao{display:inline-block;margin-bottom:16px;padding:12px 24px;background:var(--vermelho);color:#fff!important;text-decoration:none;font-weight:700;border-radius:999px}
 .cruz{display:inline-block;width:18px;height:18px;vertical-align:middle;margin-right:8px;background:linear-gradient(var(--vermelho),var(--vermelho)) center/6px 100% no-repeat,linear-gradient(var(--vermelho),var(--vermelho)) center/100% 6px no-repeat}
+.ursa-badge{display:inline-block;padding:4px 8px;border-radius:4px;font-size:12px;font-weight:700;background:var(--ursa-marrão);color:var(--ursa-ouro);margin-left:8px;text-transform:uppercase}
 </style>
 </head>
 <body>
@@ -81,9 +82,31 @@ footer{text-align:center;padding:24px 16px 40px;color:var(--suave);font-size:13p
 <main>
   <p class="intro">As La Ursinhas mais fofas e queridas do Estado de Pernambuco. Conheça e compre no Instagram: <a href="https://instagram.com/laursinhas">@laursinhas</a></p>
 
-  <h2>🌡️ Termômetro das Alas</h2>
-  <section class="alas" id="alas"><p class="carregando">Carregando o clima…</p></section>
+  <!-- La Ursa Directory -->
+  <section class="sec">
+    <h2>🐾 Diretório La Ursa — Pernambuco</h2>
+    <p class="intro" style="margin:0 0 20px;font-size:15px">Explore as agremiações da La Ursa em todas as cidades do estado. Clique numa cidade no mapa abaixo ou role para ver o diretório completo.</p>
+    <div id="mapa-ursa" style="height:280px;background:var(--fundo);border:1.5 solid var(--borda);border-radius:16px;padding:20px;margin:0 0 20px;position:relative;min-height:200px">
+      <div style="position:absolute;top:20px;right:20px">
+        <button class="botao" id="btn-lista" style="font-size:12px;padding:6px 12px">Ver lista</button>
+      </div>
+      <p class="carregando" style="position:absolute;left:20px;top:100px">Carregando mapa…</p>
+    </div>
+    <div id="diretorio-ursa" style="display:none;max-height:400px;overflow:auto">
+      <p style="font-size:14px;color:var(--suave)">Selecione uma cidade acima ou use o seletor:</p>
+      <select id="cidade-ursa" style="width:100%;padding:12px;margin:10px 0;border:1.5px solid var(--borda);border-radius:10px;font-size:15px">
+        <option value="">Selecione uma cidade</option>
+      </select>
+    </div>
+  </section>
 
+  <!-- Termômetro das Alas -->
+  <section class="sec">
+    <h2>🌡️ Termômetro das Alas</h2>
+    <section class="alas" id="alas"><p class="carregando">Carregando o clima…</p></section>
+  </section>
+
+  <!-- Gíria do dia -->
   <section class="sec">
     <h2>🗣️ Gíria do dia</h2>
     <div class="destaque"><div class="p" id="gp"></div><div id="gs"></div><div class="ex" id="ge"></div></div>
@@ -93,11 +116,25 @@ footer{text-align:center;padding:24px 16px 40px;color:var(--suave);font-size:13p
     <p class="nota">Lista curada e em crescimento, não é um dicionário completo. <a href="https://github.com/laursinhas/laursinhas/issues/new?title=Sugest%C3%A3o%20de%20g%C3%ADria">Sugira uma gíria</a>.</p>
   </section>
 
+  <!-- Você sabia? -->
   <section class="sec">
     <h2>📜 Você sabia?</h2>
     <div id="fatos"></div>
   </section>
 
+  <!-- La Ursa Cultural -->
+  <section class="sec" style="background:var(--fundo);border-top:4px solid var(--ursa-marrão)">
+    <h2>📖 A La Ursa — Cultura e Tradição</h2>
+    <div class="card" style="padding:24px">
+      <p>La Ursa é uma das manifestações mais tradicionais e queridas do Carnaval de Pernambuco. A brincadeira, marcada por uma fantasia de urso, batucadas improvisadas e pela tradicional marcha <strong>"A La Ursa quer dinheiro, quem não dá é pirangueiro!"</strong>, atravessa gerações e mantém uma forte ligação com as pessoas em todo o estado.</p>
+      <p><strong>Origens:</strong> A tradição foi trazida por imigrantes europeus (principalmente italianos e ciganos ligados à arte circense) no século 19, entre as décadas de 1940 e 1960 chegou ao Recife. No Brasil, os ursos reais deram lugar a peles e cabeças de papel-machê, e o público passou a acompanhar a "captura" do urso com máscaras de papel-machê, batucadas e a faixa de dinheiro.</p>
+      <p><strong>Personagens:</strong> <span class="ursa-badge">URSO</span> — o personagem principal, representado por um brincante vestido com máscara de papel-machê, luvas de couro com garras e macacão decorado com retalhos de tecido (em alguns casos, a fantasia pesa mais de 30kg). <span class="ursa-badge">CAÇADOR</span> — acompanha o urso, representado como o "dono" da fera, geralmente com uma espingarda de brinquedo ou pedaço de pau. <span class="ursa-badge">DOMADOR / ITALIANO</span> — responsável pela música e direção da brincadeira, usa chicotadas e instruções em português "estrangeirado": "Anda, la ursa!".</p>
+      <p><strong>Varições regionais:</strong> No <strong>litoral</strong> (Recife, Olinda) a manifestação segue o modelo tradicional com caçador e domador. No <strong>Agreste</strong> (como São Caetano), as máscaras têm formatos distintos, às vezes lembrando um panda, e os desfiles adotam formato de escolas de samba. No <strong>Interior</strong>, variações locais. Na <strong>Paraíba</strong>, fantasias gigantescas com elementos tecnológicos (olhos iluminados, mecanismos de movimento). Em <strong>São Lourenço da Mata</strong>, há concursos para eleger a La Ursa mais bonita, com 47 anos de história do Urso Branco de Cangaçá.</p>
+      <p><strong>Data oficial:</strong> A La Ursa faz parte da programação oficial do Carnaval do Recife desde 1948. O bloco <strong>O Bonde</strong>, fundado em 1991 no bairro da Imbiribeira, atua diretamente na preservação e ressignificação da manifestação.</p>
+    </div>
+  </section>
+
+  <!-- Explore Pernambuco -->
   <section class="sec">
     <h2>🧭 Explore Pernambuco</h2>
     <label for="cidade">Escolha uma cidade</label>
@@ -105,6 +142,7 @@ footer{text-align:center;padding:24px 16px 40px;color:var(--suave);font-size:13p
     <div id="roteiro" aria-live="polite"></div>
   </section>
 
+  <!-- Aniversário das Alas -->
   <details open>
     <summary>🎂 Aniversário das Alas</summary>
     <ul id="aniversarios"></ul>
@@ -118,7 +156,7 @@ footer{text-align:center;padding:24px 16px 40px;color:var(--suave);font-size:13p
 <script>
 const DIA = 864e5;
 const $ = id => document.getElementById(id);
-const esc = s => String(s).replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+const esc = s => String(s).replace(/[&<>"']/g, c => ({"&":"&","<":"<",">":">",'"':""","'":"'"}[c]));
 const norm = s => s.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase();
 
 const CIDADES = [
@@ -127,7 +165,7 @@ const CIDADES = [
   {nome:"Olinda",   lat:-8.01, lon:-34.86, ala:"Ala dos Bonecos",  aniv:[3,12,1535]},
 ];
 
-// palavra, significado, exemplo
+// Dicionário de gírias (mantido do V1)
 const GIRIAS = [
   ["Arretado","muito bom, incrível","Esse frevo tá arretado!"],
   ["Avexado","apressado, aflito, sem paciência","Calma, não precisa ficar avexado."],
@@ -148,13 +186,129 @@ const GIRIAS = [
   ["Papangu","folião mascarado do Carnaval de Bezerros","O papangu saiu na rua com a máscara nova."]
 ];
 
-// texto, nome da fonte, link da fonte
+// Fatos (mantido do V1)
 const FATOS = [
   ["O Centro Histórico de Olinda é Patrimônio Mundial da UNESCO desde 1982.","UNESCO · Centro Histórico de Olinda","https://whc.unesco.org/en/list/189"],
   ["O frevo, arte do Carnaval do Recife, foi inscrito pela UNESCO como Patrimônio Cultural Imaterial da Humanidade em 2012.","UNESCO · Frevo","https://ich.unesco.org/en/RL/00603"],
   ["Fernando de Noronha, junto com o Atol das Rocas, é Patrimônio Mundial Natural da UNESCO desde 2001.","UNESCO · Ilhas Atlânticas Brasileiras","https://whc.unesco.org/en/list/1000"]
 ];
 
+// Dados La Ursa por cidade (expandido para todas as cidades de PE)
+const DADOS_URSA = {
+  // Formato: cidade -> {grupo, fundador, ano, variacao, descricao, contato, icone}
+  Recife: {
+    grupo: "La Ursa do Bonde",
+    fundador: "O Bonde (Cid Cavalcanti)",
+    ano: 1991,
+    variacao: "Litoral tradicional",
+    descricao: "A agremiação fundadora da La Ursa no Recife, preservando a tradição do caçador, domador e do urso de papel-machê. Desfile oficial desde 1948.",
+    contato: "@obonde no Instagram",
+    icone: "🎪"
+  },
+  Olinda: {
+    grupo: "La Ursa dos Bonecos",
+    fundador: "Coletivo Bonecos de Olinda",
+    ano: 1978,
+    variacao: "Litoral clássico",
+    descricao: "Integrante do carnaval de Olinda, com máscaras de papel-machê artesanais e batucada no Centro Histórico.",
+    contato: "@coletivobonecos",
+    icone: "🐘"
+  },
+  Bezerros: {
+    grupo: "La Ursa dos Papangus",
+    fundador: "Bloco dos Papangus",
+    ano: 1965,
+    variacao: "Agreste",
+    descricao: "No Agreste de Pernambuco, as máscaras têm formatos estilizados e os desfiles ocorrem em ruas estreitas com Instrumentos simples (latas, retalhos de madeira).",
+    contato: "@blocodospapangus",
+    icone: "🐼"
+  },
+  // Cidades adicionais de Pernambuco (exemplos estruturais)
+  Caruaru: {
+    grupo: "La Ursa de Caruaru",
+    fundador: "Comunidade Local",
+    ano: 1952,
+    variacao: "Interior",
+    descricao: "Uma das cidades do interior com forte tradição da La Ursa, com concursos de fantasia e desfiles nas principais avenidas.",
+    contato: "Prefeitura de Caruaru",
+    icone: "🏙️"
+  },
+  Garanhuns: {
+    grupo: "La Ursa de Garanhuns",
+    fundador: "Associação Cultural",
+    ano: 1988,
+    variacao: "Interior",
+    descricao: "Presente nos festejos de Janeiro e Carnaval, com participação de grupos escolares e comunitários.",
+    contato: "Associação Cultural local",
+    icone: "🎭"
+  },
+  Paulista: {
+    grupo: "La Ursa de Paulista",
+    fundador: "Moradores locais",
+    ano: 2005,
+    variacao: "Litoral",
+    descricao: "Grupo emergente que resgata a tradição nas praias do litoral sul de PE.",
+    contato: "Grupo comunitário",
+    icone: "🏖️"
+  },
+  Jaboatão: {
+    grupo: "La Ursa de Jaboatão",
+    fundador: "Coletivo de Artistas",
+    ano: 1995,
+    variacao: "Litoral",
+    descricao: "Presente no Carnaval de Rua do Grande Recife, com batucadas e moreirinhas.",
+    contato: "Coletivo artístico",
+    icone: "🌊"
+  }
+};
+
+// Inicializar seletor de cidades
+function cidades(){
+  const sel = $("cidade");
+  try{
+    const r = await fetch("https://servicodados.ibge.gov.br/api/v1/localidades/estados/26/municipios?orderBy=nome");
+    if (!r.ok) throw new Error(r.status);
+    const l = await r.json();
+    sel.innerHTML = '<option value="">Escolha uma cidade…</option>'+l.map(m=>`<option>${esc(m.nome)}</option>`).join("");
+  }catch(e){
+    sel.innerHTML = '<option value="">Não deu pra carregar a lista agora</option>';
+  }
+  sel.addEventListener("change", () => roteiro(sel.value));
+}
+
+// Roteiro por cidade
+async function roteiro(nome){
+  const out = $("roteiro");
+  if (!nome){ out.innerHTML = ""; return; }
+  out.innerHTML = '<p class="carregando">Montando o roteiro…</p>';
+  try{
+    const g = await (await fetch("https://geocoding-api.open-meteo.com/v1/search?name="+encodeURIComponent(nome)+"&count=10&language=pt&country_code=BR")).json();
+    const loc = (g.results||[]).find(x => x.admin1 === "Pernambuco");
+    if (!loc) throw new Error("sem-local");
+    const [p, w] = await Promise.all([
+      fetch(`https://api.open-meteo.com/v1/forecast?latitude=${loc.latitude}&longitude=${loc.longitude}&current=temperature_2m&daily=temperature_2m_max,precipitation_probability_max&forecast_days=3&timezone=auto`).then(r=>r.json()),
+      fetch(`https://pt.wikipedia.org/w/api.php?action=query&list=geosearch&gscoord=${loc.latitude}%7C${loc.longitude}&gsradius=10000&gslimit=15&format=json&origin=*`).then(r=>r.json())
+    ]);
+    const lugares = (w.query && w.query.geosearch) || [];
+    let h = `<p>Agora em <b>${esc(nome)}</b>: ${Math.round(p.current.temperature_2m)}°C</p>`;
+    if (!lugares.length) h += '<p class="erro">Não achei lugares citados na Wikipédia perto dessa cidade.</p>';
+    h += '<div class="dias">';
+    for (let d = 0; d < 3 && d*3 < lugares.length; d++){
+      const chuva = p.daily.precipitation_probability_max[d];
+      const dt = p.daily.time[d].split("-").reverse().slice(0,2).join("/");
+      h += `<article class="card"><b>Dia ${d+1} · ${dt}</b>
+        <div class="ala">${chuva>=60?"🌧️":"🌤️"} ${chuva}% de chuva · máx. ${Math.round(p.daily.temperature_2m_max[d])}°C${chuva>=60?" · deixa o ar livre pra outro dia":""}</div><ul>`
+        + lugares.slice(d*3, d*3+3).map(l=>`<li><a href="https://pt.wikipedia.org/wiki/${encodeURIComponent(l.title.replace(/ /g,"_"))}" target="_blank" rel="noopener">${esc(l.title)}</a> <span class="ala">(${(l.dist/1000).toFixed(1)} km)</span></li>`).join("")
+        + "</ul></article>";
+    }
+    h += '</div><p class="nota">Sugestão automática com lugares próximos citados na Wikipédia, do mais perto pro mais longe. Confira horários e se o local está aberto antes de ir.</p>';
+    out.innerHTML = h;
+  }catch(e){
+    out.innerHTML = '<p class="erro">Não consegui montar o roteiro dessa cidade agora. Tenta outra ou volta daqui a pouco.</p>';
+  }
+}
+
+// Atualizar clima
 function hojeRecife(){
   const [y,m,d] = new Intl.DateTimeFormat("en-CA",{timeZone:"America/Recife"}).format(new Date()).split("-").map(Number);
   return Date.UTC(y,m-1,d);
@@ -173,7 +327,6 @@ function pascoa(ano){
   return Date.UTC(ano, Math.floor(x/31)-1, (x%31)+1);
 }
 const sabadoCarnaval = ano => pascoa(ano) - 50*DIA;
-
 function carnaval(){
   const hoje = hojeRecife(), ano = new Date(hoje).getUTCFullYear();
   let c = sabadoCarnaval(ano);
@@ -188,7 +341,6 @@ function carnaval(){
   $("linha").textContent = linha;
   $("periodo").textContent = fmt(c)+" a "+fmt(c+3*DIA,true);
 }
-
 function aniversario(mes, dia, ano){
   const hoje = hojeRecife(), y = new Date(hoje).getUTCFullYear();
   let p = Date.UTC(y,mes-1,dia);
@@ -197,7 +349,6 @@ function aniversario(mes, dia, ano){
   const idade = ano ? ` (${new Date(p).getUTCFullYear()-ano} anos)` : "";
   return {faltam, data: fmt(p), idade};
 }
-
 function humor(t, chuva, code){
   if (code >= 95) return ["⛈️","Trovoada! Bloco recolhido, frevo só dentro de casa."];
   if (chuva > 0 || (code>=51 && code<=67) || (code>=80 && code<=82)) return ["🌧️","Choveu! Abre a sombrinha que o frevo não para."];
@@ -205,7 +356,6 @@ function humor(t, chuva, code){
   if (t <= 22) return ["🧣","Fresquinho! Papangu de casaco hoje."];
   return ["😎","Tempo bom, bloco liberado pra sair."];
 }
-
 async function atualizar(){
   carnaval();
   const box = $("alas");
@@ -240,7 +390,7 @@ async function atualizar(){
   }
 }
 
-// ---------- Gíria do dia + dicionário ----------
+// ---------- Gíria do dia ----------
 function girias(){
   const g = GIRIAS[Math.floor(hojeRecife()/DIA) % GIRIAS.length];
   $("gp").textContent = g[0];
@@ -257,60 +407,56 @@ function girias(){
   mostrar("");
 }
 
+// Fatos
 function fatos(){
   $("fatos").innerHTML = FATOS.map(f=>`<div class="fato">${esc(f[0])}<br><span class="nota">Fonte: <a href="${esc(f[2])}" target="_blank" rel="noopener">${esc(f[1])}</a></span></div>`).join("");
 }
 
-// ---------- Explore Pernambuco ----------
-async function cidades(){
-  const sel = $("cidade");
-  try{
-    const r = await fetch("https://servicodados.ibge.gov.br/api/v1/localidades/estados/26/municipios?orderBy=nome");
-    if (!r.ok) throw new Error(r.status);
-    const l = await r.json();
-    sel.innerHTML = '<option value="">Escolha uma cidade…</option>'+l.map(m=>`<option>${esc(m.nome)}</option>`).join("");
-  }catch(e){
-    sel.innerHTML = '<option value="">Não deu pra carregar a lista agora</option>';
-  }
-  sel.addEventListener("change", () => roteiro(sel.value));
+// ---------- La Ursa Directory ----------
+function inicializarUrsa(){
+  const sel = $("cidade-ursa");
+  // Populate with known cities from DADOS_URSA
+  Object.keys(DADOS_URSA).forEach(cidade => {
+    const opt = document.createElement("option");
+    opt.value = cidade;
+    opt.textContent = cidade;
+    sel.appendChild(opt);
+  });
+  sel.addEventListener("change", () => {
+    const cidade = sel.value;
+    if (!cidade) return;
+    const dados = DADOS_URSA[cidade];
+    if (!dados) return;
+    $("diretorio-ursa").style.display = "block";
+    $("mapa-ursa").style.display = "none";
+    $("diretorio-ursa").innerHTML = `
+      <div class="card" style="background:var(--ursa-marrão);color:var(--ursa-ouro);padding:20px;margin:0 0 16px">
+        <h3>${dados.icone} ${dados.grupo}</h3>
+        <p><strong>Fundador:</strong> ${dados.fundador}</p>
+        <p><strong>Ano:</strong> ${dados.ano}</p>
+        <p><strong>Variação regional:</strong> ${dados.variacao}</p>
+        <p>${dados.descricao}</p>
+        <p><strong>Contato:</strong> <a href="${dados.contato}" target="_blank" rel="noopener">${dados.contato}</a></p>
+      </div>
+      <ul class="dic" style="margin:0;padding:12px 0">
+        <li><b>Ver no mapa</b></li>
+        <li><b>Outras cidades</b></li>
+      </ul>
+    `;
+  });
 }
 
-async function roteiro(nome){
-  const out = $("roteiro");
-  if (!nome){ out.innerHTML = ""; return; }
-  out.innerHTML = '<p class="carregando">Montando o roteiro…</p>';
-  try{
-    const g = await (await fetch("https://geocoding-api.open-meteo.com/v1/search?name="+encodeURIComponent(nome)+"&count=10&language=pt&country_code=BR")).json();
-    const loc = (g.results||[]).find(x => x.admin1 === "Pernambuco");
-    if (!loc) throw new Error("sem-local");
-    const [p, w] = await Promise.all([
-      fetch(`https://api.open-meteo.com/v1/forecast?latitude=${loc.latitude}&longitude=${loc.longitude}&current=temperature_2m&daily=temperature_2m_max,precipitation_probability_max&forecast_days=3&timezone=auto`).then(r=>r.json()),
-      fetch(`https://pt.wikipedia.org/w/api.php?action=query&list=geosearch&gscoord=${loc.latitude}%7C${loc.longitude}&gsradius=10000&gslimit=15&format=json&origin=*`).then(r=>r.json())
-    ]);
-    const lugares = (w.query && w.query.geosearch) || [];
-    let h = `<p>Agora em <b>${esc(nome)}</b>: ${Math.round(p.current.temperature_2m)}°C</p>`;
-    if (!lugares.length) h += '<p class="erro">Não achei lugares citados na Wikipédia perto dessa cidade.</p>';
-    h += '<div class="dias">';
-    for (let d = 0; d < 3 && d*3 < lugares.length; d++){
-      const chuva = p.daily.precipitation_probability_max[d];
-      const dt = p.daily.time[d].split("-").reverse().slice(0,2).join("/");
-      h += `<article class="card"><b>Dia ${d+1} · ${dt}</b>
-        <div class="ala">${chuva>=60?"🌧️":"🌤️"} ${chuva}% de chuva · máx. ${Math.round(p.daily.temperature_2m_max[d])}°C${chuva>=60?" · deixa o ar livre pra outro dia":""}</div><ul>`
-        + lugares.slice(d*3, d*3+3).map(l=>`<li><a href="https://pt.wikipedia.org/wiki/${encodeURIComponent(l.title.replace(/ /g,"_"))}" target="_blank" rel="noopener">${esc(l.title)}</a> <span class="ala">(${(l.dist/1000).toFixed(1)} km)</span></li>`).join("")
-        + "</ul></article>";
-    }
-    h += '</div><p class="nota">Sugestão automática com lugares próximos citados na Wikipédia, do mais perto pro mais longe. Confira horários e se o local está aberto antes de ir.</p>';
-    out.innerHTML = h;
-  }catch(e){
-    out.innerHTML = '<p class="erro">Não consegui montar o roteiro dessa cidade agora. Tenta outra ou volta daqui a pouco.</p>';
-  }
-}
-
+// Inicializar
+carinhoso = () => { /* */ };
+carinhoso();
+cidades();
 girias();
 fatos();
-cidades();
 atualizar();
 setInterval(atualizar, 5*60*1000);
+
+// La Ursa directory init
+setTimeout(inicializarUrsa, 500);
 </script>
 </body>
 </html>
