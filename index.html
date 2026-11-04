@@ -2,461 +2,302 @@
 <html lang="pt-BR">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>La Ursinhas · O bloco mais fofo de Pernambuco</title>
-<meta name="description" content="Contagem pro Carnaval, clima, gíria do dia e roteiros por Pernambuco, com La Ursa e o universo cultural do Carnaval pernambucano">
+<meta name="description" content="Contagem pro Carnaval, clima, gíria do dia e roteiros por Pernambuco, com La Ursa e o universo cultural do Carnaval pernambucano.">
 <link rel="canonical" href="https://laursinhas.xyz/">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E🐻%3C/text%3E%3C/svg%3E">
-<meta name="theme-color" content="#2F6BD9">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%F0%9F%90%BB%3C/text%3E%3C/svg%3E">
+<link rel="apple-touch-icon" href="assets/icon-180.png">
+<link rel="manifest" href="site.webmanifest">
+<meta name="theme-color" content="#2F6BD9" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0E1726" media="(prefers-color-scheme: dark)">
+<meta name="color-scheme" content="light dark">
+
 <meta property="og:type" content="website">
 <meta property="og:locale" content="pt_BR">
+<meta property="og:site_name" content="La Ursinhas">
 <meta property="og:url" content="https://laursinhas.xyz/">
 <meta property="og:title" content="La Ursinhas · O bloco mais fofo de Pernambuco">
-<meta property="og:description" content="Contagem pro Carnaval, clima, gíria do dia e roteiros por Pernambuco, com La Ursa">
+<meta property="og:description" content="Contagem pro Carnaval, clima, gíria do dia e roteiros por Pernambuco, com La Ursa.">
 <meta property="og:image" content="https://laursinhas.xyz/assets/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="La Ursinhas — o bloco mais fofo de Pernambuco">
 <meta name="twitter:card" content="summary_large_image">
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"La Ursinhas","url":"https://laursinhas.xyz/","sameAs":["https://instagram.com/laursinhas"]}</script>
-<style>
-:root{--azul:#2F6BD9;--azul-esc:#14284B;--amarelo:#F6C21B;--vermelho:#D62839;--fundo:#F3F8FF;--borda:#BBD3F5;--texto:#2B3A55;--suave:#5B6B88;--ursa-marrão:#8B4513;--ursa-ouro:#D4AF37;--ursa-branco:#F5F5F5}
-*{box-sizing:border-box}
-body{margin:0;font-family:"Segoe UI",Helvetica,Arial,sans-serif;background:#fff;color:var(--texto)}
-:focus-visible{outline:3px solid var(--amarelo);outline-offset:2px}
-header{background:var(--azul);color:#fff;text-align:center;padding:32px 16px 0}
-h1{margin:0;font-size:clamp(28px,6vw,44px)}
-.tag{margin:6px 0 24px;font-size:18px}
-.grande{font-size:clamp(64px,18vw,110px);font-weight:800;line-height:1;color:var(--ursa-marrão)}
-.linha{font-size:clamp(18px,4vw,24px);font-weight:600;margin-top:4px}
-.periodo{margin-top:10px;font-size:15px;color:var(--amarelo);font-weight:700}
-.emblema{display:block;width:240px;max-width:60%;margin:18px auto 0;filter:drop-shadow(0 4px 6px rgba(0,0,0,.15))}
-main{max-width:920px;margin:0 auto;padding:24px 16px}
-.intro{text-align:center;font-size:17px;margin:0 0 28px}
-h2{color:var(--azul-esc);font-size:22px;margin:0 0 16px}
-.sec{margin-top:40px}
-.alas,.dias{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:20px}
-.card{background:var(--fundo);border:1.5px solid var(--borda);border-radius:16px;padding:20px}
-.card.quente{border:4px solid var(--amarelo);padding:17px}
-.selo{font-size:12px;font-weight:700;color:var(--vermelho);margin-bottom:6px}
-.topo{display:flex;justify-content:space-between;align-items:center}
-.emoji{font-size:38px}
-.temp{font-size:40px;font-weight:800;color:var(--azul)}
-.nome{font-size:22px;font-weight:700;color:var(--azul-esc);margin-top:8px}
-.ala{font-size:14px;color:var(--suave)}
-.frase{margin:10px 0;font-size:15px;min-height:40px}
-.aniv{font-size:14px;font-weight:700;color:var(--vermelho)}
-.erro,.carregando,.nota{color:var(--suave);font-size:14px}
-.erro,.carregando{padding:16px;text-align:center}
-.destaque{background:var(--azul-esc);color:#fff;border-radius:16px;padding:22px;margin-bottom:16px}
-.destaque .p{font-size:36px;font-weight:800;color:var(--amarelo)}
-.destaque .ex{margin-top:8px;font-style:italic;opacity:.9}
-input,select{font:inherit;width:100%;padding:12px 14px;border:1.5px solid var(--borda);border-radius:10px;background:#fff;color:var(--texto);margin:6px 0 12px}
-label{font-weight:700;color:var(--azul-esc);font-size:14px}
-.dic{list-style:none;padding:0;margin:0}
-.dic li{padding:10px 0;border-bottom:1px solid var(--borda)}
-.dic b{color:var(--azul)}
-.fato{border-left:4px solid var(--amarelo);padding:2px 0 2px 14px;margin:16px 0}
-.fato a,.nota a,.card a,footer a{color:var(--azul)}
-details{margin-top:40px;background:var(--fundo);border:1.5px solid var(--borda);border-radius:12px;padding:14px 18px}
-summary{cursor:pointer;font-weight:700;color:var(--azul-esc)}
-ul{margin:10px 0 0;padding-left:20px;line-height:1.8}
-footer{text-align:center;padding:24px 16px 40px;color:var(--suave);font-size:13px}
-.botao{display:inline-block;margin-bottom:16px;padding:12px 24px;background:var(--vermelho);color:#fff!important;text-decoration:none;font-weight:700;border-radius:999px}
-.cruz{display:inline-block;width:18px;height:18px;vertical-align:middle;margin-right:8px;background:linear-gradient(var(--vermelho),var(--vermelho)) center/6px 100% no-repeat,linear-gradient(var(--vermelho),var(--vermelho)) center/100% 6px no-repeat}
-.ursa-badge{display:inline-block;padding:4px 8px;border-radius:4px;font-size:12px;font-weight:700;background:var(--ursa-marrão);color:var(--ursa-ouro);margin-left:8px;text-transform:uppercase}
-</style>
+<meta name="twitter:title" content="La Ursinhas · O bloco mais fofo de Pernambuco">
+<meta name="twitter:description" content="Contagem pro Carnaval, clima, gíria do dia e roteiros por Pernambuco.">
+<meta name="twitter:image" content="https://laursinhas.xyz/assets/og.png">
+
+<link rel="preconnect" href="https://api.open-meteo.com" crossorigin>
+<link rel="preconnect" href="https://geocoding-api.open-meteo.com" crossorigin>
+<link rel="preconnect" href="https://servicodados.ibge.gov.br" crossorigin>
+<link rel="stylesheet" href="assets/css/style.css">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "La Ursinhas",
+  "alternateName": "La Ursa",
+  "url": "https://laursinhas.xyz/",
+  "description": "Contagem pro Carnaval, clima, gíria do dia e roteiros por Pernambuco, com La Ursa.",
+  "inLanguage": "pt-BR",
+  "image": "https://laursinhas.xyz/assets/og.png",
+  "sameAs": ["https://instagram.com/laursinhas"],
+  "publisher": {
+    "@type": "Organization",
+    "name": "La Ursinhas",
+    "url": "https://laursinhas.xyz/",
+    "sameAs": ["https://instagram.com/laursinhas"]
+  }
+}
+</script>
 </head>
 <body>
-<header>
-  <h1>🐻 La Ursinhas</h1>
-  <p class="tag">O bloco mais fofo de Pernambuco</p>
-  <div class="grande" id="grande">…</div>
-  <div class="linha" id="linha"></div>
-  <div class="periodo">Carnaval: <span id="periodo"></span></div>
-  <svg class="emblema" viewBox="0 -18 240 152" aria-hidden="true">
-    <path d="M20 130A100 100 0 0 1 220 130" fill="none" stroke="#D62839" stroke-width="14"/>
-    <path d="M36 130A84 84 0 0 1 204 130" fill="none" stroke="#F6C21B" stroke-width="14"/>
-    <path d="M52 130A68 68 0 0 1 188 130" fill="none" stroke="#2E9E48" stroke-width="14"/>
-    <path d="M68 130A52 52 0 0 1 172 130Z" fill="#F6C21B"/>
-    <polygon points="120,-15 117.4,-7.6 109.5,-7.4 115.7,-2.6 113.5,4.9 120,0.5 126.5,4.9 124.3,-2.6 130.5,-7.4 122.6,-7.6" fill="#F6C21B"/>
-  </svg>
+<a class="pular-para-conteudo" href="#conteudo">Pular para o conteúdo</a>
+
+<header class="cabecalho">
+  <div class="cabecalho__interno">
+    <p class="cabecalho__marca">
+      <span class="cabecalho__urso" aria-hidden="true">🐻</span>
+      <span>
+        <span class="cabecalho__nome">La Ursinhas</span>
+        <span class="cabecalho__selo">O bloco mais fofo de Pernambuco</span>
+      </span>
+    </p>
+    <button type="button" id="tema-botao" class="botao-icone" aria-pressed="false" title="Alternar entre tema claro e escuro">
+      <span aria-hidden="true" data-tema-icone>🌙</span>
+      <span class="sr-only">Alternar tema</span>
+    </button>
+  </div>
 </header>
-<main>
-  <p class="intro">As La Ursinhas mais fofas e queridas do Estado de Pernambuco. Conheça e compre no Instagram: <a href="https://instagram.com/laursinhas">@laursinhas</a></p>
 
-  <!-- La Ursa Directory -->
-  <section class="sec">
-    <h2>🐾 Diretório La Ursa — Pernambuco</h2>
-    <p class="intro" style="margin:0 0 20px;font-size:15px">Explore as agremiações da La Ursa em todas as cidades do estado. Clique numa cidade no mapa abaixo ou role para ver o diretório completo.</p>
-    <div id="mapa-ursa" style="height:280px;background:var(--fundo);border:1.5 solid var(--borda);border-radius:16px;padding:20px;margin:0 0 20px;position:relative;min-height:200px">
-      <div style="position:absolute;top:20px;right:20px">
-        <button class="botao" id="btn-lista" style="font-size:12px;padding:6px 12px">Ver lista</button>
+<nav class="navegacao" aria-label="Seções do site">
+  <div class="navegacao__interno">
+    <a href="#diretório">Diretório</a>
+    <a href="#alas">Alas</a>
+    <a href="#gíria">Gíria</a>
+    <a href="#cultura">Cultura</a>
+    <a href="#pernambuco">Pernambuco</a>
+    <a href="#aniversário">Aniversário</a>
+  </div>
+</nav>
+
+<main id="conteudo">
+
+  <section class="heroi">
+    <h1 class="heroi__titulo">La Ursinhas</h1>
+    <p class="heroi__subtitulo">O bloco mais fofo de Pernambuco</p>
+
+    <div class="contagem" aria-live="polite">
+      <div class="contagem__numero" id="contagem-numero">…</div>
+      <div class="contagem__linha" id="contagem-linha"></div>
+      <p class="contagem__periodo">Carnaval: <span id="contagem-periodo">—</span></p>
+    </div>
+
+    <svg class="emblema" viewBox="0 -18 240 152" role="img" aria-label="Emblema do bloco: arco-íris com uma estrela, inspirados na bandeira de Pernambuco">
+      <path d="M20 130A100 100 0 0 1 220 130" fill="none" stroke="#D62839" stroke-width="14"/>
+      <path d="M36 130A84 84 0 0 1 204 130" fill="none" stroke="#F6C21B" stroke-width="14"/>
+      <path d="M52 130A68 68 0 0 1 188 130" fill="none" stroke="#2E9E48" stroke-width="14"/>
+      <path d="M68 130A52 52 0 0 1 172 130Z" fill="#F6C21B"/>
+      <polygon points="120,-15 117.4,-7.6 109.5,-7.4 115.7,-2.6 113.5,4.9 120,0.5 126.5,4.9 124.3,-2.6 130.5,-7.4 122.6,-7.6" fill="#F6C21B"/>
+    </svg>
+  </section>
+
+  <div class="conteudo">
+
+    <p class="introducao">
+      As La Ursinhas mais fofas e queridas do Estado de Pernambuco. Conheça e compre no Instagram:
+      <a href="https://instagram.com/laursinhas">@laursinhas</a>
+    </p>
+
+    <!-- ───────────── Diretório La Ursa ───────────── -->
+    <section class="secao" id="diretório">
+      <h2 class="secao__titulo">🐾 Diretório La Ursa — Pernambuco</h2>
+      <p class="secao__resumo">
+        Agremiações e grupos da La Ursa no estado. Toque numa cidade no mapa ou escolha na lista.
+      </p>
+
+      <div class="mapa">
+        <div class="mapa__grafico">
+          <svg class="mapa__svg" viewBox="0 0 1000 760" role="img" aria-labelledby="mapa-titulo mapa-desc">
+            <title id="mapa-titulo">Mapa ilustrativo de Pernambuco</title>
+            <desc id="mapa-desc">Mapa estilizado do estado de Pernambuco dividido em Litoral, Agreste e Sertão, com pontos indicando cidades que têm grupos de La Ursa.</desc>
+            <defs>
+              <clipPath id="recorte-pernambuco">
+                <path d="M 836.1 70.4 L 837.4 183.0 L 836.1 295.6 L 832.3 380.0 L 823.2 456.0 L 815.5 523.6 L 741.9 557.3 L 638.7 585.5 L 529.0 613.6 L 419.4 681.2 L 303.2 698.1 L 242.6 636.1 L 174.2 698.1 L 129.0 737.5 L 49.0 653.0 L 82.6 484.1 L 105.8 380.0 L 129.0 304.0 L 96.8 247.7 L 58.1 315.3 L 87.7 174.5 L 161.3 146.4 L 225.8 163.3 L 283.9 219.6 L 335.5 259.0 L 393.5 267.4 L 438.7 163.3 L 516.1 152.0 L 561.3 208.3 L 619.4 242.1 L 671.0 259.0 L 735.5 270.2 L 787.1 185.8 Z"/>
+              </clipPath>
+            </defs>
+            <g clip-path="url(#recorte-pernambuco)">
+              <rect width="1000" height="760" fill="#CDE7D8"/>
+              <path d="M 836.1 70.4 L 810.3 154.8 L 806.5 295.6 L 802.6 394.1 L 780.6 478.5 L 735.5 568.6 L 393.5 684.0 L 419.4 591.1 L 459.4 464.4 L 480.0 337.8 L 454.2 191.4 Z" fill="#F6C21B" opacity=".55"/>
+              <path d="M 836.1 70.4 L 810.3 154.8 L 806.5 295.6 L 802.6 394.1 L 780.6 478.5 L 735.5 568.6 L 1000.0 760.0 L 1000.0 0.0 Z" fill="#2F6BD9" opacity=".45"/>
+            </g>
+            <path d="M 836.1 70.4 L 837.4 183.0 L 836.1 295.6 L 832.3 380.0 L 823.2 456.0 L 815.5 523.6 L 741.9 557.3 L 638.7 585.5 L 529.0 613.6 L 419.4 681.2 L 303.2 698.1 L 242.6 636.1 L 174.2 698.1 L 129.0 737.5 L 49.0 653.0 L 82.6 484.1 L 105.8 380.0 L 129.0 304.0 L 96.8 247.7 L 58.1 315.3 L 87.7 174.5 L 161.3 146.4 L 225.8 163.3 L 283.9 219.6 L 335.5 259.0 L 393.5 267.4 L 438.7 163.3 L 516.1 152.0 L 561.3 208.3 L 619.4 242.1 L 671.0 259.0 L 735.5 270.2 L 787.1 185.8 Z" fill="none" stroke="#14284B" stroke-width="5" stroke-linejoin="round"/>
+          </svg>
+
+          <span class="mapa__regiao mapa__regiao--litoral" style="left:82.32%;top:26.67%">Litoral</span>
+          <span class="mapa__regiao mapa__regiao--agreste" style="left:58.06%;top:72.22%">Agreste</span>
+          <span class="mapa__regiao mapa__regiao--sertao" style="left:27.10%;top:72.22%">Sertão</span>
+
+          <div class="mapa__marcadores" id="mapa-marcadores"><!-- preenchido pelo app.js --></div>
+        </div>
+
+        <div class="mapa__lateral">
+          <p class="mapa__legenda">
+            <span class="mapa__legenda-item"><i class="mapa__cor mapa__cor--litoral"></i>Litoral</span>
+            <span class="mapa__legenda-item"><i class="mapa__cor mapa__cor--agreste"></i>Agreste</span>
+            <span class="mapa__legenda-item"><i class="mapa__cor mapa__cor--sertao"></i>Sertão</span>
+          </p>
+
+          <div class="mapa__troca">
+            <button type="button" class="botao botao--contorno" id="btn-mapa-lista" aria-expanded="false" aria-controls="painel-lista-ursa">Ver lista</button>
+          </div>
+
+          <div id="painel-lista-ursa" class="painel-lista" hidden>
+            <p class="painel-lista__titulo" id="lista-ursa-titulo">Todas as cidades</p>
+            <ul class="painel-lista__itens" id="lista-ursa"></ul>
+            <button type="button" class="botao botao--contorno painel-lista__todas" id="lista-ursa-todas" hidden>Ver todas as cidades</button>
+          </div>
+
+          <div class="campo">
+            <label for="cidade-ursa">Cidade</label>
+            <select id="cidade-ursa">
+              <option value="">Selecione uma cidade</option>
+            </select>
+          </div>
+        </div>
       </div>
-      <p class="carregando" style="position:absolute;left:20px;top:100px">Carregando mapa…</p>
-    </div>
-    <div id="diretorio-ursa" style="display:none;max-height:400px;overflow:auto">
-      <p style="font-size:14px;color:var(--suave)">Selecione uma cidade acima ou use o seletor:</p>
-      <select id="cidade-ursa" style="width:100%;padding:12px;margin:10px 0;border:1.5px solid var(--borda);border-radius:10px;font-size:15px">
-        <option value="">Selecione uma cidade</option>
-      </select>
-    </div>
-  </section>
 
-  <!-- Termômetro das Alas -->
-  <section class="sec">
-    <h2>🌡️ Termômetro das Alas</h2>
-    <section class="alas" id="alas"><p class="carregando">Carregando o clima…</p></section>
-  </section>
+      <div class="detalhe" id="detalhe-ursa" aria-live="polite">
+        <p class="vazio">Selecione uma cidade no mapa, na lista ou no seletor para ver os detalhes da agremiação.</p>
+      </div>
 
-  <!-- Gíria do dia -->
-  <section class="sec">
-    <h2>🗣️ Gíria do dia</h2>
-    <div class="destaque"><div class="p" id="gp"></div><div id="gs"></div><div class="ex" id="ge"></div></div>
-    <label for="busca">Procurar no dicionário</label>
-    <input id="busca" type="search" placeholder="Digite uma gíria ou um significado">
-    <ul class="dic" id="lista"></ul>
-    <p class="nota">Lista curada e em crescimento, não é um dicionário completo. <a href="https://github.com/laursinhas/laursinhas/issues/new?title=Sugest%C3%A3o%20de%20g%C3%ADria">Sugira uma gíria</a>.</p>
-  </section>
+      <p class="nota">
+        Diretório colaborativo: as informações foram enviadas pela comunidade e ainda não foram revisadas por uma
+        pessoa da agremiação. Encontrou algo errado ou falta a sua cidade?
+        <a href="https://github.com/laursinhas/laursinhas/issues/new?title=Cidade%20no%20diret%C3%B3rio%20La%20Ursa" target="_blank" rel="noopener">Ajude a corrigir</a>.
+      </p>
+    </section>
 
-  <!-- Você sabia? -->
-  <section class="sec">
-    <h2>📜 Você sabia?</h2>
-    <div id="fatos"></div>
-  </section>
+    <!-- ───────────── Termômetro das Alas ───────────── -->
+    <section class="secao" id="alas">
+      <h2 class="secao__titulo">🌡️ Termômetro das Alas</h2>
+      <div class="grade-alas" id="temperatura-alas" aria-live="polite" aria-busy="true">
+        <p class="carregando">Carregando o clima…</p>
+      </div>
+      <p class="nota" id="estado-clima" role="status"></p>
+    </section>
 
-  <!-- La Ursa Cultural -->
-  <section class="sec" style="background:var(--fundo);border-top:4px solid var(--ursa-marrão)">
-    <h2>📖 A La Ursa — Cultura e Tradição</h2>
-    <div class="card" style="padding:24px">
-      <p>La Ursa é uma das manifestações mais tradicionais e queridas do Carnaval de Pernambuco. A brincadeira, marcada por uma fantasia de urso, batucadas improvisadas e pela tradicional marcha <strong>"A La Ursa quer dinheiro, quem não dá é pirangueiro!"</strong>, atravessa gerações e mantém uma forte ligação com as pessoas em todo o estado.</p>
-      <p><strong>Origens:</strong> A tradição foi trazida por imigrantes europeus (principalmente italianos e ciganos ligados à arte circense) no século 19, entre as décadas de 1940 e 1960 chegou ao Recife. No Brasil, os ursos reais deram lugar a peles e cabeças de papel-machê, e o público passou a acompanhar a "captura" do urso com máscaras de papel-machê, batucadas e a faixa de dinheiro.</p>
-      <p><strong>Personagens:</strong> <span class="ursa-badge">URSO</span> — o personagem principal, representado por um brincante vestido com máscara de papel-machê, luvas de couro com garras e macacão decorado com retalhos de tecido (em alguns casos, a fantasia pesa mais de 30kg). <span class="ursa-badge">CAÇADOR</span> — acompanha o urso, representado como o "dono" da fera, geralmente com uma espingarda de brinquedo ou pedaço de pau. <span class="ursa-badge">DOMADOR / ITALIANO</span> — responsável pela música e direção da brincadeira, usa chicotadas e instruções em português "estrangeirado": "Anda, la ursa!".</p>
-      <p><strong>Varições regionais:</strong> No <strong>litoral</strong> (Recife, Olinda) a manifestação segue o modelo tradicional com caçador e domador. No <strong>Agreste</strong> (como São Caetano), as máscaras têm formatos distintos, às vezes lembrando um panda, e os desfiles adotam formato de escolas de samba. No <strong>Interior</strong>, variações locais. Na <strong>Paraíba</strong>, fantasias gigantescas com elementos tecnológicos (olhos iluminados, mecanismos de movimento). Em <strong>São Lourenço da Mata</strong>, há concursos para eleger a La Ursa mais bonita, com 47 anos de história do Urso Branco de Cangaçá.</p>
-      <p><strong>Data oficial:</strong> A La Ursa faz parte da programação oficial do Carnaval do Recife desde 1948. O bloco <strong>O Bonde</strong>, fundado em 1991 no bairro da Imbiribeira, atua diretamente na preservação e ressignificação da manifestação.</p>
-    </div>
-  </section>
+    <!-- ───────────── Gíria do dia ───────────── -->
+    <section class="secao" id="gíria">
+      <h2 class="secao__titulo">🗣️ Gíria do dia</h2>
+      <div class="destaque">
+        <div class="destaque__termo" id="gp"></div>
+        <div class="destaque__significado" id="gs"></div>
+        <div class="destaque__exemplo" id="ge"></div>
+      </div>
 
-  <!-- Explore Pernambuco -->
-  <section class="sec">
-    <h2>🧭 Explore Pernambuco</h2>
-    <label for="cidade">Escolha uma cidade</label>
-    <select id="cidade"><option value="">Carregando cidades…</option></select>
-    <div id="roteiro" aria-live="polite"></div>
-  </section>
+      <div class="campo">
+        <label for="busca">Procurar no dicionário</label>
+        <input id="busca" type="search" inputmode="search" autocomplete="off"
+               placeholder="Digite uma gíria ou um significado" aria-describedby="contagem-girias">
+        <p class="campo__auxiliar" id="contagem-girias" role="status"></p>
+      </div>
 
-  <!-- Aniversário das Alas -->
-  <details open>
-    <summary>🎂 Aniversário das Alas</summary>
-    <ul id="aniversarios"></ul>
-  </details>
+      <ul class="dicionario" id="lista-girias"></ul>
+
+      <p class="nota">
+        Lista curada e em crescimento, não é um dicionário completo.
+        <a href="https://github.com/laursinhas/laursinhas/issues/new?title=Sugest%C3%A3o%20de%20g%C3%ADria" target="_blank" rel="noopener">Sugira uma gíria</a>.
+      </p>
+    </section>
+
+    <!-- ───────────── Você sabia? ───────────── -->
+    <section class="secao" id="fatos">
+      <h2 class="secao__titulo">📜 Você sabia?</h2>
+      <div id="lista-fatos"></div>
+    </section>
+
+    <!-- ───────────── La Ursa Cultural ───────────── -->
+    <section class="secao secao--cultura" id="cultura">
+      <h2 class="secao__titulo">📖 A La Ursa — Cultura e Tradição</h2>
+      <div class="cartao">
+        <p>La Ursa é uma das manifestações mais tradicionais e queridas do Carnaval de Pernambuco. A brincadeira, marcada por uma fantasia de urso, batucadas improvisadas e pela tradicional marcha <strong>“A La Ursa quer dinheiro, quem não dá é pirangueiro!”</strong>, atravessa gerações e mantém uma forte ligação com as pessoas em todo o estado.</p>
+
+        <h3>Origens</h3>
+        <p>A tradição foi trazida por imigrantes europeus (principalmente italianos e ciganos ligados à arte circense) no século 19. Entre as décadas de 1940 e 1960 chegou ao Recife. No Brasil, os ursos reais deram lugar a peles e cabeças de papel-machê, e o público passou a acompanhar a <em>“captura”</em> do urso com máscaras de papel-machê, batucadas e a faixa de dinheiro.</p>
+
+        <h3>Personagens</h3>
+        <p>
+          <span class="selo-personagem">Urso</span> — o personagem principal, representado por um brincante vestido com máscara de papel-machê, luvas de couro com garras e macacão decorado com retalhos de tecido (em alguns casos, a fantasia pesa mais de 30&nbsp;kg).
+        </p>
+        <p>
+          <span class="selo-personagem">Caçador</span> — acompanha o urso, representado como o “dono” da fera, geralmente com uma espingarda de brinquedo ou pedaço de pau.
+        </p>
+        <p>
+          <span class="selo-personagem">Domador / Italiano</span> — responsável pela música e direção da brincadeira, usa chicotadas e instruções em português “estrangeirado”: <em>“Anda, la ursa!”</em>.
+        </p>
+
+        <h3>Variações regionais</h3>
+        <ul class="lista-marcada">
+          <li><strong>Litoral</strong> (Recife, Olinda): a manifestação segue o modelo tradicional, com caçador e domador.</li>
+          <li><strong>Agreste</strong> (como São Caetano): as máscaras têm formatos distintos, às vezes lembrando um panda, e os desfiles adotam formato de escolas de samba.</li>
+          <li><strong>Interior</strong>: variações locais.</li>
+          <li><strong>Paraíba</strong>: fantasias gigantescas com elementos tecnológicos (olhos iluminados, mecanismos de movimento).</li>
+          <li><strong>São Lourenço da Mata</strong>: há concursos para eleger a La Ursa mais bonita, com 47 anos de história do Urso Branco de Cangaçá.</li>
+        </ul>
+
+        <h3>Data oficial</h3>
+        <p>A La Ursa faz parte da programação oficial do Carnaval do Recife desde 1948. O bloco <strong>O Bonde</strong>, fundado em 1991 no bairro da Imbiribeira, atua diretamente na preservação e ressignificação da manifestação.</p>
+      </div>
+    </section>
+
+    <!-- ───────────── Explore Pernambuco ───────────── -->
+    <section class="secao" id="pernambuco">
+      <h2 class="secao__titulo">🧭 Explore Pernambuco</h2>
+      <div class="campo">
+        <label for="cidade-pe">Escolha uma cidade</label>
+        <select id="cidade-pe" aria-describedby="cidade-pe-ajuda">
+          <option value="">Carregando cidades…</option>
+        </select>
+        <p class="campo__auxiliar" id="cidade-pe-ajuda">Lista com os 185 municípios de Pernambuco, pela fonte do IBGE.</p>
+      </div>
+      <div id="roteiro" aria-live="polite" aria-busy="false"></div>
+    </section>
+
+    <!-- ───────────── Aniversário das Alas ───────────── -->
+    <section class="secao" id="aniversário">
+      <details class="dobravel">
+        <summary>🎂 Aniversário das Alas</summary>
+        <ul id="aniversarios"></ul>
+      </details>
+    </section>
+
+  </div>
 </main>
-<footer>
-  <a class="botao" href="https://instagram.com/laursinhas">@laursinhas no Instagram</a><br>
-  <span class="cruz"></span>Clima atualizado às <span id="hora">--:--</span> (Recife) · renova a cada 5 minutos<br>
-  <a href="https://github.com/laursinhas/laursinhas">Código no GitHub</a>
+
+<footer class="rodape">
+  <p>
+    <a class="botao botao--primario" href="https://instagram.com/laursinhas" target="_blank" rel="noopener">@laursinhas no Instagram</a>
+  </p>
+  <p class="rodape__cru"><span class="cruz" aria-hidden="true"></span>Clima atualizado às <span id="hora">--:--</span> (Recife) · renova a cada 10 minutos</p>
+  <p class="rodape__links">
+    <a href="https://github.com/laursinhas/laursinhas" target="_blank" rel="noopener">Código no GitHub</a>
+    ·
+    <a href="https://github.com/laursinhas/laursinhas/issues/new?title=Sugest%C3%A3o" target="_blank" rel="noopener">Sugerir</a>
+    ·
+    <a href="https://github.com/laursinhas/laursinhas/blob/main/LICENSE" target="_blank" rel="noopener">Licença</a>
+  </p>
 </footer>
-<script>
-const DIA = 864e5;
-const $ = id => document.getElementById(id);
-const esc = s => String(s).replace(/[&<>"']/g, c => ({"&":"&","<":"<",">":">",'"':""","'":"'"}[c]));
-const norm = s => s.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase();
 
-const CIDADES = [
-  {nome:"Bezerros", lat:-8.23, lon:-35.80, ala:"Ala dos Papangus", aniv:[5,18,null]},
-  {nome:"Recife",   lat:-8.05, lon:-34.88, ala:"Ala do Frevo",     aniv:[3,12,1537]},
-  {nome:"Olinda",   lat:-8.01, lon:-34.86, ala:"Ala dos Bonecos",  aniv:[3,12,1535]},
-];
+<noscript>
+  <div class="sem-js">
+    <p><strong>Este site usa JavaScript</strong> para buscar o clima do Recife, contar os dias pro Carnaval e
+    montar o roteiro de cada cidade. Sem ele, a página mostra só o conteúdo fixo.</p>
+  </div>
+</noscript>
 
-// Dicionário de gírias (mantido do V1)
-const GIRIAS = [
-  ["Arretado","muito bom, incrível","Esse frevo tá arretado!"],
-  ["Avexado","apressado, aflito, sem paciência","Calma, não precisa ficar avexado."],
-  ["Oxente","expressão de surpresa ou espanto","Oxente, já é Carnaval?"],
-  ["Visse","\"viu?\", usado pra confirmar o que foi dito","Chega cedo, visse?"],
-  ["Aperreio","aflição, confusão, problema","Que aperreio esse trânsito!"],
-  ["Fuleiro","de má qualidade, mixuruca","Essa fantasia ficou fuleira."],
-  ["Mangar","zombar, tirar sarro","Para de mangar de mim!"],
-  ["Pelejar","esforçar-se, lutar pra conseguir algo","Pelejei o dia todo pra achar ingresso."],
-  ["Lascado","em apuros, numa situação difícil","Se chover agora, tamo lascado."],
-  ["Vixe","expressão de surpresa, espanto ou lamento","Vixe, esqueci a sombrinha!"],
-  ["Cabra","homem, sujeito","Aquele cabra é gente boa."],
-  ["Mainha","mãe, forma carinhosa","Mainha fez bolo de rolo."],
-  ["Painho","pai, forma carinhosa","Painho vem buscar a gente."],
-  ["Matuto","pessoa do interior, do campo","O matuto sabe de tudo."],
-  ["Presepada","confusão, façanha desastrada","Que presepada foi aquela?"],
-  ["Frevar","dançar frevo","Bora frevar até o sol nascer!"],
-  ["Papangu","folião mascarado do Carnaval de Bezerros","O papangu saiu na rua com a máscara nova."]
-];
-
-// Fatos (mantido do V1)
-const FATOS = [
-  ["O Centro Histórico de Olinda é Patrimônio Mundial da UNESCO desde 1982.","UNESCO · Centro Histórico de Olinda","https://whc.unesco.org/en/list/189"],
-  ["O frevo, arte do Carnaval do Recife, foi inscrito pela UNESCO como Patrimônio Cultural Imaterial da Humanidade em 2012.","UNESCO · Frevo","https://ich.unesco.org/en/RL/00603"],
-  ["Fernando de Noronha, junto com o Atol das Rocas, é Patrimônio Mundial Natural da UNESCO desde 2001.","UNESCO · Ilhas Atlânticas Brasileiras","https://whc.unesco.org/en/list/1000"]
-];
-
-// Dados La Ursa por cidade (expandido para todas as cidades de PE)
-const DADOS_URSA = {
-  // Formato: cidade -> {grupo, fundador, ano, variacao, descricao, contato, icone}
-  Recife: {
-    grupo: "La Ursa do Bonde",
-    fundador: "O Bonde (Cid Cavalcanti)",
-    ano: 1991,
-    variacao: "Litoral tradicional",
-    descricao: "A agremiação fundadora da La Ursa no Recife, preservando a tradição do caçador, domador e do urso de papel-machê. Desfile oficial desde 1948.",
-    contato: "@obonde no Instagram",
-    icone: "🎪"
-  },
-  Olinda: {
-    grupo: "La Ursa dos Bonecos",
-    fundador: "Coletivo Bonecos de Olinda",
-    ano: 1978,
-    variacao: "Litoral clássico",
-    descricao: "Integrante do carnaval de Olinda, com máscaras de papel-machê artesanais e batucada no Centro Histórico.",
-    contato: "@coletivobonecos",
-    icone: "🐘"
-  },
-  Bezerros: {
-    grupo: "La Ursa dos Papangus",
-    fundador: "Bloco dos Papangus",
-    ano: 1965,
-    variacao: "Agreste",
-    descricao: "No Agreste de Pernambuco, as máscaras têm formatos estilizados e os desfiles ocorrem em ruas estreitas com Instrumentos simples (latas, retalhos de madeira).",
-    contato: "@blocodospapangus",
-    icone: "🐼"
-  },
-  // Cidades adicionais de Pernambuco (exemplos estruturais)
-  Caruaru: {
-    grupo: "La Ursa de Caruaru",
-    fundador: "Comunidade Local",
-    ano: 1952,
-    variacao: "Interior",
-    descricao: "Uma das cidades do interior com forte tradição da La Ursa, com concursos de fantasia e desfiles nas principais avenidas.",
-    contato: "Prefeitura de Caruaru",
-    icone: "🏙️"
-  },
-  Garanhuns: {
-    grupo: "La Ursa de Garanhuns",
-    fundador: "Associação Cultural",
-    ano: 1988,
-    variacao: "Interior",
-    descricao: "Presente nos festejos de Janeiro e Carnaval, com participação de grupos escolares e comunitários.",
-    contato: "Associação Cultural local",
-    icone: "🎭"
-  },
-  Paulista: {
-    grupo: "La Ursa de Paulista",
-    fundador: "Moradores locais",
-    ano: 2005,
-    variacao: "Litoral",
-    descricao: "Grupo emergente que resgata a tradição nas praias do litoral sul de PE.",
-    contato: "Grupo comunitário",
-    icone: "🏖️"
-  },
-  Jaboatão: {
-    grupo: "La Ursa de Jaboatão",
-    fundador: "Coletivo de Artistas",
-    ano: 1995,
-    variacao: "Litoral",
-    descricao: "Presente no Carnaval de Rua do Grande Recife, com batucadas e moreirinhas.",
-    contato: "Coletivo artístico",
-    icone: "🌊"
-  }
-};
-
-// Inicializar seletor de cidades
-function cidades(){
-  const sel = $("cidade");
-  try{
-    const r = await fetch("https://servicodados.ibge.gov.br/api/v1/localidades/estados/26/municipios?orderBy=nome");
-    if (!r.ok) throw new Error(r.status);
-    const l = await r.json();
-    sel.innerHTML = '<option value="">Escolha uma cidade…</option>'+l.map(m=>`<option>${esc(m.nome)}</option>`).join("");
-  }catch(e){
-    sel.innerHTML = '<option value="">Não deu pra carregar a lista agora</option>';
-  }
-  sel.addEventListener("change", () => roteiro(sel.value));
-}
-
-// Roteiro por cidade
-async function roteiro(nome){
-  const out = $("roteiro");
-  if (!nome){ out.innerHTML = ""; return; }
-  out.innerHTML = '<p class="carregando">Montando o roteiro…</p>';
-  try{
-    const g = await (await fetch("https://geocoding-api.open-meteo.com/v1/search?name="+encodeURIComponent(nome)+"&count=10&language=pt&country_code=BR")).json();
-    const loc = (g.results||[]).find(x => x.admin1 === "Pernambuco");
-    if (!loc) throw new Error("sem-local");
-    const [p, w] = await Promise.all([
-      fetch(`https://api.open-meteo.com/v1/forecast?latitude=${loc.latitude}&longitude=${loc.longitude}&current=temperature_2m&daily=temperature_2m_max,precipitation_probability_max&forecast_days=3&timezone=auto`).then(r=>r.json()),
-      fetch(`https://pt.wikipedia.org/w/api.php?action=query&list=geosearch&gscoord=${loc.latitude}%7C${loc.longitude}&gsradius=10000&gslimit=15&format=json&origin=*`).then(r=>r.json())
-    ]);
-    const lugares = (w.query && w.query.geosearch) || [];
-    let h = `<p>Agora em <b>${esc(nome)}</b>: ${Math.round(p.current.temperature_2m)}°C</p>`;
-    if (!lugares.length) h += '<p class="erro">Não achei lugares citados na Wikipédia perto dessa cidade.</p>';
-    h += '<div class="dias">';
-    for (let d = 0; d < 3 && d*3 < lugares.length; d++){
-      const chuva = p.daily.precipitation_probability_max[d];
-      const dt = p.daily.time[d].split("-").reverse().slice(0,2).join("/");
-      h += `<article class="card"><b>Dia ${d+1} · ${dt}</b>
-        <div class="ala">${chuva>=60?"🌧️":"🌤️"} ${chuva}% de chuva · máx. ${Math.round(p.daily.temperature_2m_max[d])}°C${chuva>=60?" · deixa o ar livre pra outro dia":""}</div><ul>`
-        + lugares.slice(d*3, d*3+3).map(l=>`<li><a href="https://pt.wikipedia.org/wiki/${encodeURIComponent(l.title.replace(/ /g,"_"))}" target="_blank" rel="noopener">${esc(l.title)}</a> <span class="ala">(${(l.dist/1000).toFixed(1)} km)</span></li>`).join("")
-        + "</ul></article>";
-    }
-    h += '</div><p class="nota">Sugestão automática com lugares próximos citados na Wikipédia, do mais perto pro mais longe. Confira horários e se o local está aberto antes de ir.</p>';
-    out.innerHTML = h;
-  }catch(e){
-    out.innerHTML = '<p class="erro">Não consegui montar o roteiro dessa cidade agora. Tenta outra ou volta daqui a pouco.</p>';
-  }
-}
-
-// Atualizar clima
-function hojeRecife(){
-  const [y,m,d] = new Intl.DateTimeFormat("en-CA",{timeZone:"America/Recife"}).format(new Date()).split("-").map(Number);
-  return Date.UTC(y,m-1,d);
-}
-function fmt(ts, comAno){
-  const d = new Date(ts);
-  const s = String(d.getUTCDate()).padStart(2,"0")+"/"+String(d.getUTCMonth()+1).padStart(2,"0");
-  return comAno ? s+"/"+d.getUTCFullYear() : s;
-}
-function pascoa(ano){
-  const a=ano%19, b=Math.floor(ano/100), c=ano%100, d=Math.floor(b/4), e=b%4;
-  const f=Math.floor((b+8)/25), g=Math.floor((b-f+1)/3);
-  const h=(19*a+b-d-g+15)%30, i=Math.floor(c/4), k=c%4;
-  const l=(32+2*e+2*i-h-k)%7, m=Math.floor((a+11*h+22*l)/451);
-  const x=h+l-7*m+114;
-  return Date.UTC(ano, Math.floor(x/31)-1, (x%31)+1);
-}
-const sabadoCarnaval = ano => pascoa(ano) - 50*DIA;
-function carnaval(){
-  const hoje = hojeRecife(), ano = new Date(hoje).getUTCFullYear();
-  let c = sabadoCarnaval(ano);
-  if (hoje > c + 3*DIA) c = sabadoCarnaval(ano+1);
-  const dias = Math.round((c-hoje)/DIA);
-  let grande, linha;
-  if (dias > 1){ grande = dias; linha = "dias pro bloco sair"; }
-  else if (dias === 1){ grande = "1"; linha = "dia: é amanhã!"; }
-  else if (dias === 0){ grande = "HOJE"; linha = "o bloco está na rua!"; }
-  else { grande = "🥁"; linha = "o Carnaval não para!"; }
-  $("grande").textContent = grande;
-  $("linha").textContent = linha;
-  $("periodo").textContent = fmt(c)+" a "+fmt(c+3*DIA,true);
-}
-function aniversario(mes, dia, ano){
-  const hoje = hojeRecife(), y = new Date(hoje).getUTCFullYear();
-  let p = Date.UTC(y,mes-1,dia);
-  if (p < hoje) p = Date.UTC(y+1,mes-1,dia);
-  const faltam = Math.round((p-hoje)/DIA);
-  const idade = ano ? ` (${new Date(p).getUTCFullYear()-ano} anos)` : "";
-  return {faltam, data: fmt(p), idade};
-}
-function humor(t, chuva, code){
-  if (code >= 95) return ["⛈️","Trovoada! Bloco recolhido, frevo só dentro de casa."];
-  if (chuva > 0 || (code>=51 && code<=67) || (code>=80 && code<=82)) return ["🌧️","Choveu! Abre a sombrinha que o frevo não para."];
-  if (t >= 32) return ["🥵","Quente demais! Bloco na sombra com água de coco."];
-  if (t <= 22) return ["🧣","Fresquinho! Papangu de casaco hoje."];
-  return ["😎","Tempo bom, bloco liberado pra sair."];
-}
-async function atualizar(){
-  carnaval();
-  const box = $("alas");
-  try{
-    const url = "https://api.open-meteo.com/v1/forecast?latitude="+CIDADES.map(c=>c.lat).join(",")
-      +"&longitude="+CIDADES.map(c=>c.lon).join(",")
-      +"&current=temperature_2m,precipitation,weather_code&timezone=America/Recife";
-    const r = await fetch(url);
-    if (!r.ok) throw new Error(r.status);
-    const dados = await r.json();
-    const itens = CIDADES.map((c,i)=>{
-      const cur = dados[i].current;
-      const [e,f] = humor(cur.temperature_2m, cur.precipitation, cur.weather_code);
-      return {...c, temp:cur.temperature_2m, e, f, a:aniversario(...c.aniv)};
-    });
-    const iq = itens.findIndex(x => x.temp === Math.max(...itens.map(y=>y.temp)));
-    box.innerHTML = itens.map((x,i)=>`
-      <article class="card${i===iq?" quente":""}">
-        ${i===iq?'<div class="selo">🔥 ALA MAIS QUENTE</div>':""}
-        <div class="topo"><span class="emoji">${x.e}</span><span class="temp">${Math.round(x.temp)}°C</span></div>
-        <div class="nome">${x.nome}</div>
-        <div class="ala">${x.ala}</div>
-        <p class="frase">${x.f}</p>
-        <div class="aniv">🎂 ${x.a.faltam===0 ? "parabéns, é hoje!" : x.a.data+" · faltam "+x.a.faltam+" dias"}</div>
-      </article>`).join("");
-    $("aniversarios").innerHTML = [...itens]
-      .sort((p,q)=>p.a.faltam-q.a.faltam)
-      .map(x=>`<li>🎂 ${x.nome}: ${x.a.faltam===0 ? "parabéns, é hoje!" : "faltam "+x.a.faltam+" dias, em "+x.a.data}${x.a.idade}</li>`).join("");
-    $("hora").textContent = new Intl.DateTimeFormat("pt-BR",{timeZone:"America/Recife",hour:"2-digit",minute:"2-digit"}).format(new Date());
-  }catch(e){
-    box.innerHTML = '<p class="erro">Não deu pra buscar o clima agora. Tenta de novo daqui a pouco!</p>';
-  }
-}
-
-// ---------- Gíria do dia ----------
-function girias(){
-  const g = GIRIAS[Math.floor(hojeRecife()/DIA) % GIRIAS.length];
-  $("gp").textContent = g[0];
-  $("gs").textContent = g[1];
-  $("ge").textContent = "“"+g[2]+"”";
-  const mostrar = q => {
-    const t = norm(q.trim());
-    const l = GIRIAS.filter(x => norm(x[0]+" "+x[1]).includes(t));
-    $("lista").innerHTML = l.length
-      ? l.map(x=>`<li><b>${esc(x[0])}</b>: ${esc(x[1])}<br><span class="ala">Ex.: ${esc(x[2])}</span></li>`).join("")
-      : '<li class="erro">Nenhuma gíria encontrada. Que tal sugerir essa?</li>';
-  };
-  $("busca").addEventListener("input", e => mostrar(e.target.value));
-  mostrar("");
-}
-
-// Fatos
-function fatos(){
-  $("fatos").innerHTML = FATOS.map(f=>`<div class="fato">${esc(f[0])}<br><span class="nota">Fonte: <a href="${esc(f[2])}" target="_blank" rel="noopener">${esc(f[1])}</a></span></div>`).join("");
-}
-
-// ---------- La Ursa Directory ----------
-function inicializarUrsa(){
-  const sel = $("cidade-ursa");
-  // Populate with known cities from DADOS_URSA
-  Object.keys(DADOS_URSA).forEach(cidade => {
-    const opt = document.createElement("option");
-    opt.value = cidade;
-    opt.textContent = cidade;
-    sel.appendChild(opt);
-  });
-  sel.addEventListener("change", () => {
-    const cidade = sel.value;
-    if (!cidade) return;
-    const dados = DADOS_URSA[cidade];
-    if (!dados) return;
-    $("diretorio-ursa").style.display = "block";
-    $("mapa-ursa").style.display = "none";
-    $("diretorio-ursa").innerHTML = `
-      <div class="card" style="background:var(--ursa-marrão);color:var(--ursa-ouro);padding:20px;margin:0 0 16px">
-        <h3>${dados.icone} ${dados.grupo}</h3>
-        <p><strong>Fundador:</strong> ${dados.fundador}</p>
-        <p><strong>Ano:</strong> ${dados.ano}</p>
-        <p><strong>Variação regional:</strong> ${dados.variacao}</p>
-        <p>${dados.descricao}</p>
-        <p><strong>Contato:</strong> <a href="${dados.contato}" target="_blank" rel="noopener">${dados.contato}</a></p>
-      </div>
-      <ul class="dic" style="margin:0;padding:12px 0">
-        <li><b>Ver no mapa</b></li>
-        <li><b>Outras cidades</b></li>
-      </ul>
-    `;
-  });
-}
-
-// Inicializar
-carinhoso = () => { /* */ };
-carinhoso();
-cidades();
-girias();
-fatos();
-atualizar();
-setInterval(atualizar, 5*60*1000);
-
-// La Ursa directory init
-setTimeout(inicializarUrsa, 500);
-</script>
+<script src="assets/js/app.js" defer></script>
 </body>
 </html>
