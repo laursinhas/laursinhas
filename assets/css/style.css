@@ -1,0 +1,830 @@
+/* ==========================================================================
+   La Ursinhas — folha de estilo única
+   Mobile-first. Tokens em :root, tema escuro via prefers-color-scheme e
+   pelo botão de tema ([data-theme] no <html>).
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   1. Tokens
+   -------------------------------------------------------------------------- */
+:root {
+  --azul:        #2F6BD9;
+  --azul-esc:    #14284B;
+  --azul-fundo:  #14284B;
+  --amarelo:     #F6C21B;
+  --vermelho:    #D62839;
+  --verde:       #2E9E48;
+
+  --fundo:       #F3F8FF;
+  --superficie:  #FFFFFF;
+  --superficie-2:#F3F8FF;
+  --borda:       #BBD3F5;
+  --borda-forte: #2F6BD9;
+  --texto:       #2B3A55;
+  --suave:       #5B6B88;
+  --ursa-marrão: #8B4513;
+  --ursa-ouro:   #D4AF37;
+  --ursa-branco: #F5F5F5;
+
+  --sombra:      0 1px 2px rgba(16, 32, 64, .06), 0 8px 24px rgba(16, 32, 64, .08);
+  --sombra-alta: 0 2px 6px rgba(16, 32, 64, .10), 0 18px 48px rgba(16, 32, 64, .16);
+
+  --raio:        16px;
+  --raio-p:      10px;
+  --largura:     1080px;
+  --transicao:   180ms ease;
+
+  --cor-foco:    #0B3FA8;
+  color-scheme: light;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --fundo:       #0B1220;
+    --superficie:  #141F33;
+    --superficie-2:#101A2B;
+    --borda:       #2C405F;
+    --borda-forte: #7AA7F5;
+    --texto:       #E7EEF9;
+    --suave:       #A6B7D2;
+    --azul:        #7AA7F5;
+    --azul-esc:    #AEC8FF;
+    --azul-fundo:  #0F1A2C;
+    --vermelho:    #FF6E7C;
+    --verde:       #4ECB71;
+    --ursa-ouro:   #F0D071;
+    --sombra:      0 1px 2px rgba(0, 0, 0, .40), 0 8px 24px rgba(0, 0, 0, .34);
+    --sombra-alta: 0 2px 6px rgba(0, 0, 0, .50), 0 18px 48px rgba(0, 0, 0, .46);
+    --cor-foco:    #F6C21B;
+    color-scheme: dark;
+  }
+}
+
+:root[data-theme="dark"] {
+  --fundo:       #0B1220;
+  --superficie:  #141F33;
+  --superficie-2:#101A2B;
+  --borda:       #2C405F;
+  --borda-forte: #7AA7F5;
+  --texto:       #E7EEF9;
+  --suave:       #A6B7D2;
+  --azul:        #7AA7F5;
+  --azul-esc:    #AEC8FF;
+  --azul-fundo:  #0F1A2C;
+  --vermelho:    #FF6E7C;
+  --verde:       #4ECB71;
+  --ursa-ouro:   #F0D071;
+  --sombra:      0 1px 2px rgba(0, 0, 0, .40), 0 8px 24px rgba(0, 0, 0, .34);
+  --sombra-alta: 0 2px 6px rgba(0, 0, 0, .50), 0 18px 48px rgba(0, 0, 0, .46);
+  --cor-foco:    #F6C21B;
+  color-scheme: dark;
+}
+
+/* --------------------------------------------------------------------------
+   2. Base
+   -------------------------------------------------------------------------- */
+*, *::before, *::after { box-sizing: border-box; }
+
+html {
+  -webkit-text-size-adjust: 100%;
+  scroll-behavior: smooth;
+  scroll-padding-top: 112px;
+}
+
+body {
+  margin: 0;
+  font-family: "Segoe UI", -apple-system, BlinkMacSystemFont, Roboto, Helvetica, Arial, sans-serif;
+  font-size: 16px;
+  line-height: 1.55;
+  background: var(--fundo);
+  color: var(--texto);
+  overflow-wrap: break-word;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3 { line-height: 1.2; text-wrap: balance; }
+p { margin: 0 0 1em; }
+img, svg { max-width: 100%; }
+
+a { color: var(--azul); text-underline-offset: 2px; }
+a:hover { text-decoration-thickness: 2px; }
+
+:focus-visible {
+  outline: 3px solid var(--cor-foco);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+.sr-only {
+  position: absolute !important;
+  width: 1px; height: 1px;
+  padding: 0; margin: -1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  white-space: nowrap;
+  border: 0;
+}
+
+.pular-para-conteudo {
+  position: absolute;
+  left: 8px; top: -100px;
+  z-index: 100;
+  padding: 12px 18px;
+  background: var(--superficie);
+  color: var(--azul-esc);
+  border: 2px solid var(--borda-forte);
+  border-radius: var(--raio-p);
+  font-weight: 700;
+  text-decoration: none;
+  transition: top var(--transicao);
+}
+.pular-para-conteudo:focus { top: 8px; }
+
+/* --------------------------------------------------------------------------
+   3. Cabeçalho e navegação
+   -------------------------------------------------------------------------- */
+.cabecalho {
+  background: var(--azul-fundo);
+  color: #fff;
+  padding-top: env(safe-area-inset-top);
+}
+.cabecalho__interno {
+  max-width: var(--largura);
+  margin: 0 auto;
+  padding: 12px max(16px, env(safe-area-inset-right)) 12px max(16px, env(safe-area-inset-left));
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+.cabecalho__marca {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 0;
+  min-width: 0;
+}
+.cabecalho__urso { font-size: 28px; line-height: 1; }
+.cabecalho__nome {
+  display: block;
+  font-weight: 800;
+  font-size: 17px;
+  letter-spacing: -.01em;
+}
+.cabecalho__selo {
+  display: block;
+  font-size: 12px;
+  color: var(--amarelo);
+  font-weight: 600;
+}
+.botao-icone {
+  flex: 0 0 auto;
+  min-width: 44px; min-height: 44px;
+  display: inline-grid;
+  place-items: center;
+  font-size: 19px;
+  background: rgba(255, 255, 255, .12);
+  border: 1px solid rgba(255, 255, 255, .28);
+  border-radius: 50%;
+  color: #fff;
+  cursor: pointer;
+  transition: background var(--transicao), transform var(--transicao);
+}
+.botao-icone:hover { background: rgba(255, 255, 255, .24); }
+.botao-icone:active { transform: scale(.94); }
+
+.navegacao {
+  position: sticky;
+  top: 0;
+  z-index: 40;
+  background: var(--azul-fundo);
+  border-bottom: 1px solid rgba(255, 255, 255, .14);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, .18);
+}
+.navegacao__interno {
+  max-width: var(--largura);
+  margin: 0 auto;
+  padding: 6px max(16px, env(safe-area-inset-right)) 6px max(16px, env(safe-area-inset-left));
+  display: flex;
+  gap: 4px;
+  overflow-x: auto;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  scroll-snap-type: x proximity;
+}
+.navegacao__interno::-webkit-scrollbar { display: none; }
+.navegacao a {
+  flex: 0 0 auto;
+  scroll-snap-align: start;
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  padding: 0 14px;
+  border-radius: 999px;
+  color: #fff;
+  font-size: 14px;
+  font-weight: 600;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: background var(--transicao);
+}
+.navegacao a:hover { background: rgba(255, 255, 255, .16); }
+.navegacao a:focus-visible { outline-color: var(--amarelo); }
+
+/* --------------------------------------------------------------------------
+   4. Herói / contagem
+   -------------------------------------------------------------------------- */
+.heroi {
+  background:
+    radial-gradient(120% 80% at 50% -10%, rgba(246, 194, 27, .22), transparent 60%),
+    linear-gradient(180deg, var(--azul-fundo) 0%, var(--azul) 100%);
+  color: #fff;
+  text-align: center;
+  padding: 40px max(16px, env(safe-area-inset-right)) 30px max(16px, env(safe-area-inset-left));
+}
+.heroi__titulo {
+  margin: 0;
+  font-size: clamp(30px, 7vw, 46px);
+  font-weight: 800;
+  letter-spacing: -.02em;
+}
+.heroi__subtitulo {
+  margin: 6px 0 22px;
+  font-size: clamp(15px, 3.6vw, 19px);
+  color: var(--amarelo);
+  font-weight: 700;
+}
+.contagem { margin-bottom: 6px; }
+.contagem__numero {
+  font-size: clamp(60px, 17vw, 110px);
+  font-weight: 800;
+  line-height: .95;
+  color: #fff;
+  text-shadow: 0 3px 0 rgba(0, 0, 0, .18);
+}
+.contagem__linha {
+  font-size: clamp(17px, 4vw, 24px);
+  font-weight: 600;
+  margin-top: 4px;
+}
+.contagem__periodo {
+  margin: 10px 0 0;
+  font-size: 14px;
+  color: var(--amarelo);
+  font-weight: 700;
+}
+.emblema {
+  display: block;
+  width: 240px;
+  max-width: 58%;
+  margin: 18px auto 0;
+  filter: drop-shadow(0 4px 6px rgba(0, 0, 0, .20));
+}
+
+/* --------------------------------------------------------------------------
+   5. Estrutura de conteúdo
+   -------------------------------------------------------------------------- */
+.conteudo {
+  max-width: var(--largura);
+  margin: 0 auto;
+  padding: 26px max(16px, env(safe-area-inset-right)) 30px max(16px, env(safe-area-inset-left));
+}
+.introducao {
+  text-align: center;
+  font-size: 17px;
+  margin: 0 0 26px;
+}
+.secao { margin-top: 44px; scroll-margin-top: 108px; }
+.secao:first-of-type { margin-top: 0; }
+.secao__titulo {
+  color: var(--azul-esc);
+  font-size: clamp(20px, 4.6vw, 24px);
+  margin: 0 0 10px;
+}
+.secao__resumo { color: var(--suave); margin: 0 0 18px; font-size: 15px; }
+
+.secao--cultura {
+  background: var(--superficie-2);
+  border-top: 4px solid var(--ursa-marrão);
+  border-radius: 0 0 var(--raio) var(--raio);
+  padding: 26px 16px;
+  /* sangra até a borda da tela sem gerar rolagem horizontal */
+  margin-left: calc(-1 * max(16px, env(safe-area-inset-left, 0px)));
+  margin-right: calc(-1 * max(16px, env(safe-area-inset-right, 0px)));
+}
+.secao--cultura .secao__titulo { margin-top: 0; }
+.cartao {
+  background: var(--superficie);
+  border: 1.5px solid var(--borda);
+  border-radius: var(--raio);
+  padding: 20px;
+  box-shadow: var(--sombra);
+}
+.cartao h3 {
+  color: var(--azul-esc);
+  font-size: 17px;
+  margin: 22px 0 8px;
+}
+.cartao h3:first-child { margin-top: 0; }
+.lista-marcada { margin: 8px 0 0; padding-left: 20px; line-height: 1.75; }
+.lista-marcada li { margin-bottom: 6px; }
+
+.selo-personagem {
+  display: inline-block;
+  padding: 3px 8px;
+  border-radius: 4px;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: .04em;
+  text-transform: uppercase;
+  background: var(--ursa-marrão);
+  color: var(--ursa-ouro);
+  margin-right: 6px;
+  vertical-align: 1px;
+}
+
+/* --------------------------------------------------------------------------
+   6. Cartões de clima
+   -------------------------------------------------------------------------- */
+.grade-alas {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 250px), 1fr));
+  gap: 16px;
+}
+.cartao-clima {
+  background: var(--superficie-2);
+  border: 1.5px solid var(--borda);
+  border-radius: var(--raio);
+  padding: 18px;
+  position: relative;
+}
+.cartao-clima--quente {
+  border: 4px solid var(--amarelo);
+  padding: 15.5px;
+  box-shadow: var(--sombra);
+}
+.selo {
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: .05em;
+  color: var(--vermelho);
+  margin-bottom: 6px;
+}
+.cartao-clima__topo {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+}
+.cartao-clima__emoji { font-size: 38px; line-height: 1; }
+.cartao-clima__temp {
+  font-size: 38px;
+  font-weight: 800;
+  color: var(--azul);
+  line-height: 1;
+}
+.cartao-clima__nome {
+  font-size: 21px;
+  font-weight: 700;
+  color: var(--azul-esc);
+  margin-top: 10px;
+}
+.cartao-clima__ala { font-size: 14px; color: var(--suave); }
+.cartao-clima__frase { margin: 10px 0; font-size: 15px; min-height: 2.9em; }
+.cartao-clima__aniversario { font-size: 14px; font-weight: 700; color: var(--vermelho); }
+
+/* --------------------------------------------------------------------------
+   7. Mapa
+   -------------------------------------------------------------------------- */
+.mapa {
+  display: grid;
+  gap: 18px;
+}
+.mapa__grafico {
+  position: relative;
+  background: var(--superficie-2);
+  border: 1.5px solid var(--borda);
+  border-radius: var(--raio);
+  padding: 10px;
+  overflow: hidden;
+}
+.mapa__svg { display: block; width: 100%; height: auto; }
+.mapa__marcadores { position: absolute; inset: 10px; }
+.mapa__regiao {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: #14284B;
+  opacity: .6;
+  pointer-events: none;
+  white-space: nowrap;
+}
+.mapa__marcador {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  width: 14px; height: 14px;
+  padding: 0;
+  border: 2.5px solid #fff;
+  border-radius: 50%;
+  background: var(--vermelho);
+  box-shadow: 0 1px 4px rgba(0, 0, 0, .45);
+  cursor: pointer;
+  transition: transform var(--transicao), background var(--transicao);
+}
+/* área de toque ampliada, sem alterar o desenho do ponto */
+.mapa__marcador::before {
+  content: "";
+  position: absolute;
+  inset: -5px;
+  border-radius: 50%;
+}
+.mapa__marcador:hover,
+.mapa__marcador:focus-visible { transform: translate(-50%, -50%) scale(1.35); z-index: 2; }
+.mapa__marcador[aria-pressed="true"] {
+  background: var(--amarelo);
+  border-color: var(--azul-esc);
+  transform: translate(-50%, -50%) scale(1.35);
+  z-index: 2;
+}
+/* grupo de cidades que ficam perto demais para clicar separadas */
+.mapa__marcador--grupo {
+  width: 28px; height: 28px;
+  border-width: 3px;
+  background: var(--azul-esc);
+  color: #fff;
+  font-size: 12px;
+  font-weight: 800;
+  display: grid;
+  place-items: center;
+  font-family: inherit;
+}
+.mapa__marcador--grupo:hover,
+.mapa__marcador--grupo:focus-visible { background: var(--azul); }
+.mapa__marcador--grupo[aria-pressed="true"] { background: var(--amarelo); color: var(--azul-esc); }
+.mapa__marcador[data-com-dados="false"] { background: var(--suave); }
+
+.mapa__legenda {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px 16px;
+  margin: 0 0 12px;
+  font-size: 13px;
+  color: var(--suave);
+}
+.mapa__legenda-item { display: inline-flex; align-items: center; gap: 6px; }
+.mapa__cor {
+  width: 14px; height: 14px;
+  border-radius: 3px;
+  border: 1px solid rgba(0, 0, 0, .18);
+  display: inline-block;
+}
+.mapa__cor--litoral { background: rgba(47, 107, 217, .55); }
+.mapa__cor--agreste { background: rgba(246, 194, 27, .65); }
+.mapa__cor--sertao  { background: #CDE7D8; }
+.mapa__troca { margin-bottom: 14px; }
+
+.painel-lista {
+  border: 1.5px solid var(--borda);
+  border-radius: var(--raio);
+  background: var(--superficie);
+  padding: 8px;
+  margin-bottom: 16px;
+  max-height: 320px;
+  overflow-y: auto;
+}
+.painel-lista__titulo {
+  margin: 4px 6px 8px;
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: .04em;
+  text-transform: uppercase;
+  color: var(--suave);
+}
+.painel-lista__itens {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 170px), 1fr));
+  gap: 4px;
+}
+.painel-lista__todas { margin: 10px 6px 4px; }
+.painel-lista__itens button {
+  width: 100%;
+  min-height: 44px;
+  text-align: left;
+  padding: 10px 12px;
+  border: 0;
+  border-radius: var(--raio-p);
+  background: transparent;
+  color: var(--texto);
+  font: inherit;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background var(--transicao);
+}
+.painel-lista__itens button:hover { background: var(--superficie-2); }
+.painel-lista__itens button[aria-pressed="true"] {
+  background: var(--azul);
+  color: #fff;
+  font-weight: 700;
+}
+
+/* --------------------------------------------------------------------------
+   8. Detalhe da agremiação
+   -------------------------------------------------------------------------- */
+.detalhe { margin-top: 16px; }
+.detalhe__cartao {
+  background: var(--ursa-marrão);
+  color: var(--ursa-branco);
+  border-radius: var(--raio);
+  padding: 20px;
+  box-shadow: var(--sombra);
+}
+.detalhe__cartao h3 {
+  margin: 0 0 12px;
+  font-size: 20px;
+  color: var(--ursa-ouro);
+}
+.detalhe__grade {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 180px), 1fr));
+  gap: 10px 18px;
+  margin: 0 0 14px;
+}
+.detalhe__campo { margin: 0; }
+.detalhe__rotulo {
+  display: block;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  opacity: .8;
+}
+.detalhe__valor { font-size: 15px; font-weight: 600; }
+.detalhe__cartao a { color: var(--ursa-ouro); }
+.detalhe__acao {
+  margin: 14px 0 0;
+  padding-top: 12px;
+  border-top: 1px solid rgba(255, 255, 255, .22);
+  font-size: 14px;
+}
+.vazio {
+  color: var(--suave);
+  font-size: 15px;
+  margin: 0;
+  padding: 18px;
+  text-align: center;
+  border: 1.5px dashed var(--borda);
+  border-radius: var(--raio);
+  background: var(--superficie-2);
+}
+
+/* --------------------------------------------------------------------------
+   9. Formulários
+   -------------------------------------------------------------------------- */
+.campo { margin-bottom: 18px; }
+.campo label {
+  display: block;
+  font-weight: 700;
+  color: var(--azul-esc);
+  font-size: 14px;
+  margin-bottom: 6px;
+}
+.campo__auxiliar {
+  margin: 6px 0 0;
+  font-size: 13px;
+  color: var(--suave);
+}
+input[type="search"], input[type="text"], select {
+  font: inherit;
+  width: 100%;
+  padding: 12px 14px;
+  min-height: 48px;
+  border: 1.5px solid var(--borda);
+  border-radius: var(--raio-p);
+  background: var(--superficie);
+  color: var(--texto);
+}
+input:focus-visible, select:focus-visible { border-color: var(--borda-forte); }
+select {
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' fill='none' stroke='%235B6B88' stroke-width='2' stroke-linecap='round'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 14px center;
+  background-size: 12px;
+  padding-right: 40px;
+}
+:root[data-theme="dark"] select,
+:root:not([data-theme="light"]) select { background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' fill='none' stroke='%23A6B7D2' stroke-width='2' stroke-linecap='round'/%3E%3C/svg%3E"); }
+@media (prefers-color-scheme: light) {
+  :root:not([data-theme="dark"]) select { background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' fill='none' stroke='%235B6B88' stroke-width='2' stroke-linecap='round'/%3E%3C/svg%3E"); }
+}
+
+/* --------------------------------------------------------------------------
+   10. Botões
+   -------------------------------------------------------------------------- */
+.botao {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
+  padding: 10px 20px;
+  border: 0;
+  border-radius: 999px;
+  background: var(--azul);
+  color: #fff;
+  font: inherit;
+  font-weight: 700;
+  font-size: 14px;
+  text-decoration: none;
+  cursor: pointer;
+  transition: transform var(--transicao), filter var(--transicao);
+}
+.botao:hover { filter: brightness(1.08); }
+.botao:active { transform: scale(.97); }
+.botao--primario { background: var(--vermelho); }
+.botao--contorno {
+  background: transparent;
+  color: var(--azul-esc);
+  border: 1.5px solid var(--borda-forte);
+}
+.botao--contorno:hover { background: var(--superficie-2); filter: none; }
+
+/* --------------------------------------------------------------------------
+   11. Gíria, fatos, roteiro
+   -------------------------------------------------------------------------- */
+.destaque {
+  background: var(--azul-fundo);
+  color: #fff;
+  border-radius: var(--raio);
+  padding: 22px;
+  margin-bottom: 18px;
+  box-shadow: var(--sombra);
+}
+.destaque__termo { font-size: clamp(28px, 7vw, 36px); font-weight: 800; color: var(--amarelo); }
+.destaque__significado { margin-top: 6px; font-size: 17px; }
+.destaque__exemplo { margin-top: 8px; font-style: italic; opacity: .92; }
+
+.dicionario {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  border: 1.5px solid var(--borda);
+  border-radius: var(--raio);
+  background: var(--superficie);
+  overflow: hidden;
+}
+.dicionario li {
+  padding: 12px 16px;
+  border-bottom: 1px solid var(--borda);
+}
+.dicionario li:last-child { border-bottom: 0; }
+.dicionario b { color: var(--azul); }
+.dicionario .exemplo { font-size: 14px; color: var(--suave); }
+
+.fato {
+  border-left: 4px solid var(--amarelo);
+  padding: 4px 0 4px 14px;
+  margin: 16px 0;
+}
+.fato p { margin: 0; }
+.fato .fonte { font-size: 13px; color: var(--suave); margin-top: 4px; }
+
+.grade-dias {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr));
+  gap: 16px;
+}
+.dia {
+  background: var(--superficie-2);
+  border: 1.5px solid var(--borda);
+  border-radius: var(--raio);
+  padding: 18px;
+}
+.dia__titulo { font-size: 15px; color: var(--azul-esc); margin: 0 0 6px; }
+.dia__previsao { font-size: 14px; color: var(--suave); margin: 0 0 10px; }
+.dia ul { margin: 0; padding-left: 20px; line-height: 1.8; font-size: 15px; }
+.dia .distancia { color: var(--suave); font-size: 13px; }
+
+/* --------------------------------------------------------------------------
+   12. Dobravel, estados e notas
+   -------------------------------------------------------------------------- */
+.dobravel {
+  background: var(--superficie-2);
+  border: 1.5px solid var(--borda);
+  border-radius: 12px;
+  padding: 14px 18px;
+}
+.dobravel summary {
+  cursor: pointer;
+  font-weight: 700;
+  color: var(--azul-esc);
+  min-height: 24px;
+}
+.dobravel ul { margin: 12px 0 4px; padding-left: 20px; line-height: 1.9; }
+.dobravel li strong { color: var(--vermelho); }
+
+.nota { color: var(--suave); font-size: 14px; margin: 14px 0 0; }
+.nota a { color: var(--azul); }
+.carregando, .erro {
+  color: var(--suave);
+  font-size: 14px;
+  padding: 16px;
+  text-align: center;
+  grid-column: 1 / -1;
+}
+.erro {
+  color: var(--vermelho);
+  background: var(--superficie-2);
+  border: 1.5px solid var(--borda);
+  border-radius: var(--raio);
+}
+.erro .botao { margin-top: 10px; }
+.aviso-antigo {
+  display: inline-block;
+  margin-left: 6px;
+  padding: 1px 7px;
+  border-radius: 999px;
+  background: var(--amarelo);
+  color: var(--azul-esc);
+  font-size: 11px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: .03em;
+}
+
+/* --------------------------------------------------------------------------
+   13. Rodapé
+   -------------------------------------------------------------------------- */
+.rodape {
+  text-align: center;
+  padding: 30px max(16px, env(safe-area-inset-right)) calc(40px + env(safe-area-inset-bottom)) max(16px, env(safe-area-inset-left));
+  color: var(--suave);
+  font-size: 13px;
+  background: var(--superficie-2);
+  border-top: 1px solid var(--borda);
+  margin-top: 44px;
+}
+.rodape p { margin: 0 0 10px; }
+.rodape__cru { display: flex; align-items: center; justify-content: center; gap: 8px; }
+.rodape__links a { color: var(--azul); }
+.cruz {
+  display: inline-block;
+  width: 14px; height: 14px;
+  flex: 0 0 auto;
+  background:
+    linear-gradient(var(--vermelho), var(--vermelho)) center/4px 100% no-repeat,
+    linear-gradient(var(--vermelho), var(--vermelho)) center/100% 4px no-repeat;
+}
+.sem-js {
+  max-width: var(--largura);
+  margin: 0 auto 20px;
+  padding: 16px;
+  border: 1.5px solid var(--amarelo);
+  border-radius: var(--raio);
+  background: var(--superficie-2);
+}
+
+/* --------------------------------------------------------------------------
+   14. Telas médias — o mapa ganha coluna lateral
+   -------------------------------------------------------------------------- */
+@media (min-width: 760px) {
+  .mapa { grid-template-columns: minmax(0, 1.65fr) minmax(240px, .85fr); align-items: start; }
+  .mapa__lateral { position: sticky; top: 116px; }
+  .secao--cultura { margin-left: 0; margin-right: 0; padding: 30px 26px; }
+  .introducao { font-size: 18px; }
+}
+/* --------------------------------------------------------------------------
+   15. Telas grandes
+   -------------------------------------------------------------------------- */
+@media (min-width: 1040px) {
+  .conteudo { padding-top: 34px; }
+  .secao { margin-top: 56px; }
+  .heroi { padding-top: 56px; padding-bottom: 40px; }
+  .emblema { max-width: 46%; }
+}
+
+/* --------------------------------------------------------------------------
+   16. Preferências do sistema
+   -------------------------------------------------------------------------- */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    animation-duration: .001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: .001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+@media print {
+  .cabecalho, .navegacao, .rodape, .mapa__marcadores, .botao-icone { display: none !important; }
+  body { background: #fff; color: #000; }
+  .heroi { background: none; color: #000; }
+  .conteudo { max-width: none; }
+}
