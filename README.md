@@ -16,8 +16,8 @@
 <details>
 <summary>🎂 Aniversário das Alas</summary>
 
-- 🎂 Olinda: faltam 128 dias, em 12/03 (492 anos)
-- 🎂 Recife: faltam 128 dias, em 12/03 (490 anos)
-- 🎂 Bezerros: faltam 195 dias, em 18/05
+- 🎂 Olinda: faltam 127 dias, em 12/03 (492 anos)
+- 🎂 Recife: faltam 127 dias, em 12/03 (490 anos)
+- 🎂 Bezerros: faltam 194 dias, em 18/05
 
 </details>
