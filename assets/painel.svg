@@ -14,13 +14,14 @@
 <text x="852" y="124" font-size="24" font-weight="700" fill="#FFFFFF" text-anchor="end">06/02 a 09/02/2027</text>
 <rect x="40" y="240" width="250" height="225" rx="16" fill="#F3F8FF" stroke="#BBD3F5" stroke-width="1.5"/>
 <text x="64" y="318" font-size="36">😎</text>
-<text x="266" y="318" font-size="38" font-weight="800" fill="#2F6BD9" text-anchor="end">26°C</text>
+<text x="266" y="318" font-size="38" font-weight="800" fill="#2F6BD9" text-anchor="end">28°C</text>
 <text x="64" y="358" font-size="22" font-weight="700" fill="#14284B">Bezerros</text>
 <text x="64" y="380" font-size="14" fill="#5B6B88">Ala dos Papangus</text>
 <text x="64" y="408" font-size="14" fill="#2B3A55">Tempo bom, bloco liberado</text>
 <text x="64" y="426" font-size="14" fill="#2B3A55">pra sair.</text>
 <text x="64" y="452" font-size="14" font-weight="700" fill="#D62839">🎂 18/05 · faltam 187 dias</text>
-<rect x="325" y="240" width="250" height="225" rx="16" fill="#F3F8FF" stroke="#BBD3F5" stroke-width="1.5"/>
+<rect x="325" y="240" width="250" height="225" rx="16" fill="#F3F8FF" stroke="#F6C21B" stroke-width="4"/>
+<text x="349" y="270" font-size="12" font-weight="700" fill="#D62839">🔥 ALA MAIS QUENTE</text>
 <text x="349" y="318" font-size="36">🌧️</text>
 <text x="551" y="318" font-size="38" font-weight="800" fill="#2F6BD9" text-anchor="end">28°C</text>
 <text x="349" y="358" font-size="22" font-weight="700" fill="#14284B">Recife</text>
@@ -28,8 +29,7 @@
 <text x="349" y="408" font-size="14" fill="#2B3A55">Choveu! Abre a sombrinha</text>
 <text x="349" y="426" font-size="14" fill="#2B3A55">que o frevo não para.</text>
 <text x="349" y="452" font-size="14" font-weight="700" fill="#D62839">🎂 12/03 · faltam 120 dias</text>
-<rect x="610" y="240" width="250" height="225" rx="16" fill="#F3F8FF" stroke="#F6C21B" stroke-width="4"/>
-<text x="634" y="270" font-size="12" font-weight="700" fill="#D62839">🔥 ALA MAIS QUENTE</text>
+<rect x="610" y="240" width="250" height="225" rx="16" fill="#F3F8FF" stroke="#BBD3F5" stroke-width="1.5"/>
 <text x="634" y="318" font-size="36">🌧️</text>
 <text x="836" y="318" font-size="38" font-weight="800" fill="#2F6BD9" text-anchor="end">28°C</text>
 <text x="634" y="358" font-size="22" font-weight="700" fill="#14284B">Olinda</text>
@@ -39,5 +39,5 @@
 <text x="634" y="452" font-size="14" font-weight="700" fill="#D62839">🎂 12/03 · faltam 120 dias</text>
 <rect x="47" y="486" width="6" height="22" fill="#D62839"/>
 <rect x="40" y="494" width="20" height="6" fill="#D62839"/>
-<text x="72" y="502" font-size="12" fill="#5B6B88">Atualizado em 12/11/2026 07:55 · a cada 30 minutos</text>
+<text x="72" y="502" font-size="12" fill="#5B6B88">Atualizado em 12/11/2026 08:53 · a cada 30 minutos</text>
 </g></svg>
